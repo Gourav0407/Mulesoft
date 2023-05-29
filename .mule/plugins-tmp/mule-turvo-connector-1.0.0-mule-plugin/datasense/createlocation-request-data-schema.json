@@ -1,0 +1,432 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "locationPostRequest"
+      },
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "address"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "locationAddressPost"
+            },
+            "additionalProperties": true,
+            "required": [
+              "line1",
+              "city",
+              "zip",
+              "type"
+            ],
+            "properties": {
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "country": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "account": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "integer"
+            }
+          }
+        },
+        "company": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "integer"
+            }
+          }
+        },
+        "geofence": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "circle",
+                "polygon"
+              ]
+            },
+            "polygon": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "radius": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "units": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deliveryLink": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "status": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "code": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "lateType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "type": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "time": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "duration": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "externalId": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "value": {
+              "type": "string"
+            },
+            "account": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "shippingHours": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "days": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "days"
+              }
+            }
+          }
+        },
+        "receivingHours": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "days": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "days"
+              }
+            }
+          }
+        },
+        "hoursOfOperation": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "days": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "days"
+              }
+            }
+          }
+        },
+        "crossDock": {
+          "type": "boolean"
+        },
+        "coldStorage": {
+          "type": "boolean"
+        },
+        "warehouse": {
+          "type": "boolean"
+        },
+        "useApptAsDwellTime": {
+          "type": "boolean"
+        },
+        "dwellTime": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "value": {
+              "type": "integer"
+            },
+            "units": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "specialInstructions": {
+          "type": "string"
+        },
+        "schedulingType": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "id",
+            "name"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "directions": {
+          "type": "string"
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "locationEmailPost"
+            },
+            "additionalProperties": true,
+            "required": [
+              "email",
+              "type"
+            ],
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "receiveTurvoLinks": {
+                "type": "boolean"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "locationPhonePost"
+            },
+            "additionalProperties": true,
+            "required": [
+              "number",
+              "type"
+            ],
+            "properties": {
+              "number": {
+                "type": "integer"
+              },
+              "extension": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+%dw 2.0
+
+type auto_17a73ea7_8625_47ee_8df5_429ad26cf555_Input_Payload = {
+  departureTime: String, 
+  arivalTime: String, 
+  flightName: String, 
+  _?: Any
+}
+

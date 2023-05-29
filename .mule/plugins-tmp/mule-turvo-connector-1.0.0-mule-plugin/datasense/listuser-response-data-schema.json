@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Status": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer"
+            },
+            "pageSize": {
+              "type": "integer"
+            },
+            "totalRecordsInPage": {
+              "type": "integer"
+            },
+            "moreAvailable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "start",
+            "pageSize",
+            "totalRecordsInPage",
+            "moreAvailable"
+          ]
+        },
+        "users": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "created": {
+                  "type": "string"
+                },
+                "updated": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "isPrimary": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "email",
+                        "isPrimary",
+                        "type",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "created",
+                "updated",
+                "email"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "pagination",
+        "users"
+      ]
+    }
+  },
+  "required": [
+    "Status",
+    "details"
+  ]
+}

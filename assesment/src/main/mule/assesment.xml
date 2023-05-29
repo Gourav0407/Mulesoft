@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7579f708-507b-4ac9-8b47-32b56cbe0bda" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="ba5ae11d-6f7b-4202-9171-c2e6e4074e56" >
+		<db:my-sql-connection host="mudb.learn.mulesoft" port="3306" user="mule" password="mule" database="training" />
+	</db:config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="a35295c9-73dd-442c-b512-d66471c0ef48" >
+		<file:connection workingDir="C:\Users\G68\OneDrive - Capgemini\Desktop\New folder2" />
+	</file:config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="9f33a8c8-f0fd-4574-8742-39a578e8b789" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<flow name="assesmentFlow1" doc:id="3961e836-ecbc-4b8b-96de-5ca0cd5eef58" >
+		<http:listener doc:name="Listener" doc:id="771c73ec-2d15-4774-887a-66caebf6fafc" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-variable value='#["hello"]' doc:name="Set Variable" doc:id="ee516adf-732a-43ec-a30f-e41e00275222" variableName="var" />
+		<set-payload doc:name="Set Payload" doc:id="8aab9ea6-5a8b-45ee-8aaf-0a203983239e" value='#["hello1"]'/>
+		<http:request method="POST" doc:name="Request" doc:id="0da79ff2-1f85-414c-b06c-f0d8a1177302" config-ref="HTTP_Request_configuration" path="test1" target="var2">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	"name" : "Value"
+}]]]></http:query-params>
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="c7f56a70-52b9-4e33-bcd3-4d5c030195f2" message='#[attributes.queryParams.name]'/>
+		<logger level="INFO" doc:name="Logger" doc:id="8dea75ef-6fd7-4b10-a695-2ae64bf85163" message="#[vars.var2]"/>
+	</flow>
+	<flow name="assesmentFlow2" doc:id="b3911f30-d594-4e9e-bc16-b3d3c8c2dbdc" >
+		<http:listener doc:name="Listener" doc:id="2fdcda70-8cf6-461a-8679-3fb769227efc" config-ref="HTTP_Listener_config" path="/test1" allowedMethods="POST"/>
+		<set-payload value='#["hilo"]' doc:name="Set Payload" doc:id="248fbc3e-b5b6-427f-be95-83d495ec2ae5" />
+		<logger level="INFO" doc:name="Logger" doc:id="8c640cfd-9c22-4274-b34e-feb2af448914" message="#[attributes.queryParams.name]"/>
+	</flow>
+</mule>

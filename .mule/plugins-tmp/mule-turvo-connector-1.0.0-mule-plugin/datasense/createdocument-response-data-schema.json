@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "documentId": {
+      "type": "string"
+    },
+    "contextId": {
+      "type": "integer"
+    },
+    "contextType": {
+      "type": "string"
+    },
+    "documentType": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    "documentName": {
+      "type": "string"
+    },
+    "documentDescription": {
+      "type": "string"
+    },
+    "documentStatus": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "key": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value",
+        "key"
+      ]
+    },
+    "file": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "invoice": {
+      "type": "object",
+      "properties": {
+        "no": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "invoiceDate": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "timezone"
+          ]
+        },
+        "dueDate": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "timezone"
+          ]
+        }
+      },
+      "required": [
+        "no",
+        "amount",
+        "invoiceDate",
+        "dueDate"
+      ]
+    },
+    "sharing": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type",
+                "role",
+                "source"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "entities"
+      ]
+    }
+  },
+  "required": [
+
+  ]
+}

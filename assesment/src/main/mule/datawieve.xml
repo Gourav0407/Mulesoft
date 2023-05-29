@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="datawieveFlow" doc:id="f85559ad-ec8c-40d1-9620-6d7119863da3" >
+		<http:listener doc:name="Listener" doc:id="fddeeb86-be14-4949-a053-1a4829f9f9dc" config-ref="HTTP_Listener_config" path="/items"/>
+		<ee:transform doc:name="Transform Message" doc:id="326f3a77-f617-4dd5-a370-9b5cbb99e916" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+//import * from dw::Mule
+---
+
+	Mule::lookup( 
+	"addltem",
+	{payload:{ price: "100", item: "router", itemType: "cable" }} )
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="addItem" doc:id="e96a088b-8f7f-440a-a545-e62bb205514b" >
+		<ee:transform doc:name="Transform Message" doc:id="4964d2fe-2263-4341-84e5-88563e3292f9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+order:{
+	item:{
+	itemName:payload.item,
+	itemType:payload.itemType,
+	price:payload.price
+	}
+	
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

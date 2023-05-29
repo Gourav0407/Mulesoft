@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="959f226b-4609-45a2-8843-c8bcd11c4163" >
+		<file:connection workingDir="C:\Users\G68\OneDrive - Capgemini\Desktop\Asignment2" />
+	</file:config>
+	<flow name="jsonToXmlFlow" doc:id="94a11262-876a-4834-905b-70187ba3b6cc" >
+		<file:listener doc:name="On New or Updated File" doc:id="fa402bae-6407-41a4-b5d7-4418c056d662" config-ref="File_Config" directory="JSONfiles" autoDelete="true">
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</file:listener>
+		<set-variable value="#[%dw 2.0&#10;import * from dw::core::Strings&#10;---&#10;substringBefore(attributes.fileName,'.')]" doc:name="Set Variable" doc:id="7cc09d01-4b41-48e8-951e-b164a8520824" variableName="fileName"/>
+		<logger level="INFO" doc:name="Logger" doc:id="1ec66161-f8fb-484a-b097-d6b37504222c" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="25d5f25b-f00e-4770-bab7-1ab9acc9b006" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+---
+data:payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="0e433290-099b-48b4-9c93-2e9a7a724493" message="#[payload]"/>
+		<file:write doc:name="Write" doc:id="64824de4-76ae-48fa-9d90-468123f722d4" config-ref="File_Config" path='#["Processed/" ++ vars.fileName ++ ".xml"]'/>
+	
+</flow>
+	<flow name="jsonToXmlFlow1" doc:id="4589ce76-717b-430e-a162-16e3f5f76c9d" >
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="fbf8a326-b3bb-473a-b562-27d393202eeb" />
+	</flow>
+
+</mule>

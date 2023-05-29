@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/contextType",
+  "definitions": {
+    "contextType": {
+      "type": "string",
+      "format": "string",
+      "enum": [
+        "shipment",
+        "shipper",
+        "factor",
+        "carrier",
+        "contact",
+        "location"
+      ]
+    }
+  }
+}

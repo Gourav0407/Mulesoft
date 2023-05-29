@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7ed6600a-bbbf-42b1-9b2b-07f2a6fad4f1" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="f235dd57-aafb-4eef-80ac-d4f5fb537441" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<flow name="queryparamFlow" doc:id="60988596-afc3-4b0f-a644-0fc748994d24" >
+		<http:listener doc:name="Listener" doc:id="6a655400-f5f3-4151-9be8-0ee4cc0ad350" config-ref="HTTP_Listener_config" path="/test"/>
+		<http:request method="GET" doc:name="Request" doc:id="1c7c95e4-ccf1-4710-ab06-aab18b509636" config-ref="HTTP_Request_configuration" path="/test2">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	fileName : "gourav"
+}]]]></http:query-params>
+		</http:request>
+	</flow>
+	<flow name="queryparamFlow1" doc:id="6c43822b-7f83-4725-889b-8a0687d03c57" >
+		<http:listener doc:name="Listener" doc:id="d4378aeb-bbe5-4b31-b85c-099b9e8b9362" config-ref="HTTP_Listener_config" path="/test2"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c8eb5568-5cc3-4b67-b1f6-00833ac923af" message="#[attributes.queryParams.fullname]"/>
+	</flow>
+</mule>

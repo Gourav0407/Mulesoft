@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "groupPutRequest"
+      },
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "user"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "user": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "groupUserPut"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "permission": {
+                "type": "string"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

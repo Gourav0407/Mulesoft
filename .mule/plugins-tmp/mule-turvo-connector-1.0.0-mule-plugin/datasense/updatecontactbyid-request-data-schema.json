@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "contactAddressPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "contactEmailPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "contactPhonePut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "extension": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "putContext"
+            },
+            "additionalProperties": true,
+            "required": [
+              "associationId",
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "associationId": {
+                "type": "integer"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "role": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "putRole"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<http:listener-config name="HTTP_Listener_config2" doc:name="HTTP Listener config" doc:id="9d4915c9-48d3-4b3d-962f-b0c44863a9f8" >
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<flow name="mule_db3Flow" doc:id="61ad8afb-e91b-46d4-887f-282d8a3f3283" >
+		<http:listener doc:name="Listener" doc:id="72a0404b-fe0a-4c09-ab33-ef6b71f22c78" config-ref="HTTP_Listener_config2" path="/select" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7714026f-7e29-4d4b-86c3-93e13857993f" message='#["flow has been started for select operation"]'/>
+		<db:select doc:name="Select" doc:id="e0d77a10-c0d0-4f62-ba40-90e3ff946bfe" config-ref="Database_Config1">
+			<db:sql ><![CDATA[select * from demo.student1;]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="9c6afbe1-fb35-49d1-a305-3b1b8c4c3d53" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="513d0439-1bb5-4a93-99c8-596ad9dbe3ba" message='#["flow ended"]'/>
+	</flow>
+</mule>

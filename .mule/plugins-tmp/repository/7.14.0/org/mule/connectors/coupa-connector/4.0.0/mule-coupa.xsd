@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:mule="http://www.mulesoft.org/schema/mule/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mulesoft.org/schema/mule/coupa" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"></xs:import>
+  <xs:import namespace="http://www.springframework.org/schema/beans" schemaLocation="http://www.springframework.org/schema/beans/spring-beans.xsd"></xs:import>
+  <xs:import namespace="http://www.mulesoft.org/schema/mule/core" schemaLocation="http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></xs:import>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstract-shared-extension" name="config">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractExtensionType">
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="1" maxOccurs="1" ref="mule:abstractConnectionProvider"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:expiration-policy"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="proxy-config">
+              <xs:annotation>
+                <xs:documentation>Proxy Configurations.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" base="coupa:org.mule.extension.coupa.api.CoupaProxyConfiguration"></xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="optional" name="proxyConfig">
+            <xs:annotation>
+              <xs:documentation>Proxy Configurations.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="invoiceCustomFields">
+            <xs:annotation>
+              <xs:documentation>Invoices custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="invoiceLinesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Invoice lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="purchaseOrdersCustomFields">
+            <xs:annotation>
+              <xs:documentation>Purchase orders custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="purchaseOrderLinesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Purchase order lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="inventoryTransactionsCustomFields">
+            <xs:annotation>
+              <xs:documentation>Inventory transactions custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="requisitionsCustomFields">
+            <xs:annotation>
+              <xs:documentation>Requisitions custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="requisitionLinesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Requisition lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="expenseReportsCustomFields">
+            <xs:annotation>
+              <xs:documentation>Expense reports custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="expenseReportLinesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Expense report lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="suppliersCustomFields">
+            <xs:annotation>
+              <xs:documentation>Suppliers custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="supplierInformationCustomFields">
+            <xs:annotation>
+              <xs:documentation>SIM custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="usersCustomFields">
+            <xs:annotation>
+              <xs:documentation>Users custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="lookupValuesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Lookup values custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="addressesCustomFields">
+            <xs:annotation>
+              <xs:documentation>Addresses custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="itemsCustomFields">
+            <xs:annotation>
+              <xs:documentation>Items custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="supplierItemCustomFields">
+            <xs:annotation>
+              <xs:documentation>SupplierItems custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="contractsCustomFields">
+            <xs:annotation>
+              <xs:documentation>Contracts custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="chargeCustomFields">
+            <xs:annotation>
+              <xs:documentation>Charges custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="coupaPayCustomFields">
+            <xs:annotation>
+              <xs:documentation>CoupaPay payments custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="statementCustomFields">
+            <xs:annotation>
+              <xs:documentation>Statements custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="dynamicDiscountCustomFields">
+            <xs:annotation>
+              <xs:documentation>Dynamic discounting custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="projectCustomFields">
+            <xs:annotation>
+              <xs:documentation>Projects custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="advancedShipNoticeCustomFields">
+            <xs:annotation>
+              <xs:documentation>ASN custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="supplierSiteCustomFields">
+            <xs:annotation>
+              <xs:documentation>Supplier Site custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="supplierInformationSiteCustomFields">
+            <xs:annotation>
+              <xs:documentation>SIM Site custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="name">
+            <xs:annotation>
+              <xs:documentation>The identifier of this element used to reference it in other components</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="org.mule.extension.coupa.api.CoupaProxyConfiguration">
+    <xs:annotation>
+      <xs:documentation>Proxy Configurations.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="optional" name="host"></xs:attribute>
+        <xs:attribute type="mule:expressionInt" use="optional" name="port"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="username"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="password"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="nonProxyHosts"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="coupa-connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+          </xs:sequence>
+          <xs:attribute type="mule:expressionString" use="required" name="coupaInstance">
+            <xs:annotation>
+              <xs:documentation>Coupa Instance URL to establish the connection.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="apiKey">
+            <xs:annotation>
+              <xs:documentation>Coupa Instance API Key for API authentication (Deprecated from R35).</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="clientId">
+            <xs:annotation>
+              <xs:documentation>OIDC authentication credentials (Client ID) for API connectivity.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="clientSecret">
+            <xs:annotation>
+              <xs:documentation>OIDC authentication credentials (Client Secret) for API connectivity.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="oidcScope">
+            <xs:annotation>
+              <xs:documentation>OIDC authentication credentials (Scope) for restricting API operation.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionInt" use="optional" name="responseTimeout">
+            <xs:annotation>
+              <xs:documentation>Timeout value for API connectivity.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/coupa" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="responseTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>Timeout Unit for provided Timeout Value. Example: DAYS, HOURS, MINUTES, SECONDS, MILLISECONDS, etc.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="AdvancedShipNoticeType" substitutionGroup="mule:abstract-operator" name="advanced-ship-notice">
+    <xs:annotation>
+      <xs:documentation>Operation to void ADVANCED_SHIP_NOTICE (ASNs) records in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AdvancedShipNoticeType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="ApprovalsType" substitutionGroup="mule:abstract-operator" name="approvals">
+    <xs:annotation>
+      <xs:documentation>Operation to support approval/rejection of transaction in Coupa. Actions Supported: Approve or Reject with Comment.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ApprovalsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="action"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="comment"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateBudgetLineAdjustmentsType" substitutionGroup="mule:abstract-operator" name="create-budget-line-adjustments">
+    <xs:annotation>
+      <xs:documentation>Operation to create budget-adjustment record against respective budgetline in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateBudgetLineAdjustmentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="budgetLineId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateCommentsType" substitutionGroup="mule:abstract-operator" name="create-comments">
+    <xs:annotation>
+      <xs:documentation>Operation to post comment against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateCommentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="object"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="objectId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateItemsSupplierItemsType" substitutionGroup="mule:abstract-operator" name="create-items-supplier-items">
+    <xs:annotation>
+      <xs:documentation>Operation to create supplier-item record against respective item in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateItemsSupplierItemsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="itemId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateObjectType" substitutionGroup="mule:abstract-operator" name="create-object">
+    <xs:annotation>
+      <xs:documentation>CREATE Operation contains list of Coupa Objects that supports POST API call. Note: JSON body is required with this operation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateObjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="objectType"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateSupplierInformationSiteType" substitutionGroup="mule:abstract-operator" name="create-supplier-information-site">
+    <xs:annotation>
+      <xs:documentation>Operation to create SIM-site against respective SIM record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateSupplierInformationSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="simId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateSupplierSiteType" substitutionGroup="mule:abstract-operator" name="create-supplier-site">
+    <xs:annotation>
+      <xs:documentation>Operation to create supplier-site against respective Supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateSupplierSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CresteSuppliersRemitToAddressType" substitutionGroup="mule:abstract-operator" name="creste-suppliers-remit-to-address">
+    <xs:annotation>
+      <xs:documentation>Operation to create Remit-to-address against respective Supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CresteSuppliersRemitToAddressType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="ExpenseReportsType" substitutionGroup="mule:abstract-operator" name="expense-reports">
+    <xs:annotation>
+      <xs:documentation>Operation to submit draft expense report for approval in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ExpenseReportsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetBudgetLineAdjustmentsType" substitutionGroup="mule:abstract-operator" name="get-budget-line-adjustments">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific budget-adjustment record linked against budgetline in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetBudgetLineAdjustmentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="budgetLineId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="budgetLineAdjustmentId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetCommentsType" substitutionGroup="mule:abstract-operator" name="get-comments">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific comment against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetCommentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="object"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="objectId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="commentId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetImageInvoiceType" substitutionGroup="mule:abstract-operator" name="get-image-invoice">
+    <xs:annotation>
+      <xs:documentation>Operation to get image scan document from Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetImageInvoiceType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetItemsSupplierItemsType" substitutionGroup="mule:abstract-operator" name="get-items-supplier-items">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific supplier-item record linked against item in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetItemsSupplierItemsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="itemId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierItemId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetObjectType" substitutionGroup="mule:abstract-operator" name="get-object">
+    <xs:annotation>
+      <xs:documentation>GET Operation contains list of Coupa Objects that supports GET API call.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetObjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="objectType"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetSupplierInformationSiteType" substitutionGroup="mule:abstract-operator" name="get-supplier-information-site">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific SIM-site linked against SIM record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetSupplierInformationSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="simId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="simSiteId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetSupplierSiteType" substitutionGroup="mule:abstract-operator" name="get-supplier-site">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific supplier-site linked against supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetSupplierSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierSiteId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="GetSuppliersRemitToAddressType" substitutionGroup="mule:abstract-operator" name="get-suppliers-remit-to-address">
+    <xs:annotation>
+      <xs:documentation>Operation to get specific Remit-to-address linked against Supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GetSuppliersRemitToAddressType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="remitToAddressId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="InventoryTransactionsType" substitutionGroup="mule:abstract-operator" name="inventory-transactions">
+    <xs:annotation>
+      <xs:documentation>Operation to void Receipt (Inventory Transactions) records in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InventoryTransactionsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="MarkExportedObjectType" substitutionGroup="mule:abstract-operator" name="mark-exported-object">
+    <xs:annotation>
+      <xs:documentation>MARK EXPORTED Operation contains list of Coupa Objects that supports flipping of Exported flag.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="MarkExportedObjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="objectType"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="actionValue"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="PurchaseOrdersType" substitutionGroup="mule:abstract-operator" name="purchase-orders">
+    <xs:annotation>
+      <xs:documentation>Operation to perform different actions on Purchase Order in Coupa. Actions Supported: Close, Cancel, Issue, Release PO from buyer hold.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PurchaseOrdersType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="action"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryBudgetLineAdjustmentsType" substitutionGroup="mule:abstract-operator" name="query-budget-line-adjustments">
+    <xs:annotation>
+      <xs:documentation>Operation to query budget-adjustment records linked to respective budgetline in Coupa. Pagination: Supported</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryBudgetLineAdjustmentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="budgetLineId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="org.mule.extension.coupa.api.CoupaOperatorAttribute">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="required" name="field"></xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/coupa" type="org.mule.extension.coupa.api.CoupaOperatorEnumType" use="optional" default="EQ" name="operator"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="value"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" type="coupa:org.mule.extension.coupa.api.CoupaOperatorAttribute" abstract="true" name="abstract-coupa-operator-attribute"></xs:element>
+  <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" substitutionGroup="coupa:abstract-coupa-operator-attribute" name="coupa-operator-attribute">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="coupa:org.mule.extension.coupa.api.CoupaOperatorAttribute"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryCommentsType" substitutionGroup="mule:abstract-operator" name="query-comments">
+    <xs:annotation>
+      <xs:documentation>Operation to query comments against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports. Pagination: Supported.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryCommentsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="object"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="objectId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryItemsSupplierItemsType" substitutionGroup="mule:abstract-operator" name="query-items-supplier-items">
+    <xs:annotation>
+      <xs:documentation>Operation to query supplier-item records linked to respective item in Coupa. Pagination: Supported.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryItemsSupplierItemsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="itemId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryObjectsType" substitutionGroup="mule:abstract-operator" name="query-objects">
+    <xs:annotation>
+      <xs:documentation>QUERY Operation contains list of Coupa Objects that supports GET API call. Pagination: Supported.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryObjectsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="objectType"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QuerySupplierInformationSitesType" substitutionGroup="mule:abstract-operator" name="query-supplier-information-sites">
+    <xs:annotation>
+      <xs:documentation>Operation to query SIM-sites linked to respective SIM record in Coupa. Pagination: Supported</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuerySupplierInformationSitesType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="simId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QuerySupplierSitesType" substitutionGroup="mule:abstract-operator" name="query-supplier-sites">
+    <xs:annotation>
+      <xs:documentation>Operation to query supplier-sites linked to respective Supplier record in Coupa. Pagination: Supported</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuerySupplierSitesType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QuerySuppliersRemitToAddressType" substitutionGroup="mule:abstract-operator" name="query-suppliers-remit-to-address">
+    <xs:annotation>
+      <xs:documentation>Operation to query Remit-to-addresses linked to respective Supplier record in Coupa. Pagination: Supported</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuerySuppliersRemitToAddressType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="params">
+            <xs:annotation>
+              <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:coupa="http://www.mulesoft.org/schema/mule/coupa" minOccurs="0" maxOccurs="unbounded" ref="coupa:abstract-coupa-operator-attribute"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="query">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters/filters on Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="params">
+          <xs:annotation>
+            <xs:documentation>Allows to set query parameters to Coupa APIs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="disableOffset">
+          <xs:annotation>
+            <xs:documentation>Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="ReceiveAdvancedShipNoticeType" substitutionGroup="mule:abstract-operator" name="receive-advanced-ship-notice">
+    <xs:annotation>
+      <xs:documentation>Operation to receive ADVANCED_SHIP_NOTICE (ASNs) records in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ReceiveAdvancedShipNoticeType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="fullyConsume"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="RequisitionsType" substitutionGroup="mule:abstract-operator" name="requisitions">
+    <xs:annotation>
+      <xs:documentation>Operation to perform different actions on Requisition in Coupa. Actions Supported: Create &amp; Submit for approval, Create in draft status.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RequisitionsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="action"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateItemsSupplierItemsType" substitutionGroup="mule:abstract-operator" name="update-items-supplier-items">
+    <xs:annotation>
+      <xs:documentation>Operation to update supplier-item record linked to respective item in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateItemsSupplierItemsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="itemId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierItemId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateObjectType" substitutionGroup="mule:abstract-operator" name="update-object">
+    <xs:annotation>
+      <xs:documentation>UPDATE Operation contains list of Coupa Objects that supports PUT API call. Note: JSON body is required with this operation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateObjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="objectType"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateSupplierInformationSiteType" substitutionGroup="mule:abstract-operator" name="update-supplier-information-site">
+    <xs:annotation>
+      <xs:documentation>Operation to update SIM-site linked to respective SIM record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateSupplierInformationSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="simId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="simSiteId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateSupplierSiteType" substitutionGroup="mule:abstract-operator" name="update-supplier-site">
+    <xs:annotation>
+      <xs:documentation>Operation to update supplier-site linked to respective Supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateSupplierSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierSiteId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateSuppliersRemitToAddressType" substitutionGroup="mule:abstract-operator" name="update-suppliers-remit-to-address">
+    <xs:annotation>
+      <xs:documentation>Operation to update Remit-to-address linked to respective Supplier record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateSuppliersRemitToAddressType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="entity"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="supplierId"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="remitToAddressId"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UploadImageInvoiceType" substitutionGroup="mule:abstract-operator" name="upload-image-invoice">
+    <xs:annotation>
+      <xs:documentation>Operation to upload image scan document to Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UploadImageInvoiceType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="image"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/coupa" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="VoidInvoiceType" substitutionGroup="mule:abstract-operator" name="void-invoice">
+    <xs:annotation>
+      <xs:documentation>Operation to void invoice record in Coupa.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="VoidInvoiceType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="id"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="java.util.concurrent.TimeUnitEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NANOSECONDS"></xs:enumeration>
+          <xs:enumeration value="MICROSECONDS"></xs:enumeration>
+          <xs:enumeration value="MILLISECONDS"></xs:enumeration>
+          <xs:enumeration value="SECONDS"></xs:enumeration>
+          <xs:enumeration value="MINUTES"></xs:enumeration>
+          <xs:enumeration value="HOURS"></xs:enumeration>
+          <xs:enumeration value="DAYS"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="org.mule.extension.coupa.api.CoupaOperatorEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="EQ"></xs:enumeration>
+          <xs:enumeration value="CONTAINS"></xs:enumeration>
+          <xs:enumeration value="STARTS_WITH"></xs:enumeration>
+          <xs:enumeration value="ENDS_WITH"></xs:enumeration>
+          <xs:enumeration value="GT"></xs:enumeration>
+          <xs:enumeration value="LT"></xs:enumeration>
+          <xs:enumeration value="GT_OR_EQ"></xs:enumeration>
+          <xs:enumeration value="LT_OR_EQ"></xs:enumeration>
+          <xs:enumeration value="NOT_EQ"></xs:enumeration>
+          <xs:enumeration value="BLANK"></xs:enumeration>
+          <xs:enumeration value="IN"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+</xs:schema>

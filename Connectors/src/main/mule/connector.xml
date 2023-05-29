@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="57c73043-1e58-49aa-8577-1455a00a33e8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="ccb2d48b-df83-4bb9-a396-1f8c9f7196e3" >
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="123456" database="MULESOFT" />
+	</db:config>
+	<sftp:config name="SFTP_Config" doc:name="SFTP Config" doc:id="54db7002-a535-455d-9fb3-c6d8a36cbd9a" >
+		<sftp:connection host="localhost" port="2222" username="tester" password="password" />
+	</sftp:config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="a5ae0ae0-58ac-4405-a0fa-f53401546812" >
+		<file:connection workingDir="C:\Users\G68\OneDrive - Capgemini\Desktop\Ftp-Home" />
+	</file:config>
+	<flow name="helloworldFlow" doc:id="8d3c5e67-c2f6-406c-b34c-b504ab721b10" >
+		<http:listener doc:name="Listener" doc:id="7a84d6c2-86fb-4890-b408-19058ffbb5ba" config-ref="HTTP_Listener_config" path="/select">
+		</http:listener>
+		<db:select doc:name="Select" doc:id="81b19a5e-ce44-4a65-9cfd-ad04bfa1f931" config-ref="Database_Config">
+			<db:sql ><![CDATA[select * from WH_INFO;]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="1b77b88a-17fd-4aa4-8649-95947e36bfa1">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="da92a3af-7625-4168-b68b-8793ebce8ef7" message="success"/>
+	</flow>
+	<flow name="helloworldFlow3" doc:id="347f0be2-4e50-4a27-805c-ce8c96a25ea4" >
+		<http:listener doc:name="Listener" doc:id="e2944571-94bd-4c06-a346-7ea4398475aa" config-ref="HTTP_Listener_config" path="/insert" allowedMethods="POST">
+			<http:response statusCode="#[payload.StatusCode]" reasonPhrase="#[payload.Message]" />
+		</http:listener>
+		<db:insert doc:name="Insert" doc:id="dd3a30ba-4d9e-40c2-a334-5b9b4d00d27f" config-ref="Database_Config">
+			<db:sql ><![CDATA[insert into WH_Info values(:id, :name, :facility, :code, :live);]]></db:sql>
+			<db:input-parameters ><![CDATA[#[payload]]]></db:input-parameters>
+		</db:insert>
+		<ee:transform doc:name="Transform Message" doc:id="0b6436e6-660c-4f1d-81c3-b9d0730f4889" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	StatusCode: 200,
+	Message: "Success"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="helloworldFlow4" doc:id="a74f93f2-07f0-4904-a0a6-43df11d6750d" >
+		<http:listener doc:name="Listener" doc:id="b43f3bd0-b52f-46e1-b39c-5d9dc9825859" config-ref="HTTP_Listener_config" path="/update"/>
+		<db:update doc:name="Update" doc:id="234c2abb-6ed1-4ab9-a6bd-9614f96ac30b" config-ref="Database_Config">
+			<db:sql ><![CDATA[update WH_INFO set FACILITY= :facility WHERE WAREHOUSE_CODE=12;]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	facility: payload.data.facility
+}]]]></db:input-parameters>
+		</db:update>
+		<ee:transform doc:name="Transform Message" doc:id="9f58f0ea-4165-480f-9532-8eadda0f6f57" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+---
+{
+	responses:{
+		status: 100,
+		message: "success"
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="helloworldFlow5" doc:id="2d53c71c-a1a9-4d7c-a304-679160e1b796" >
+		<http:listener doc:name="Listener" doc:id="fe7f4eef-5d19-454f-9745-ad95fdba5f6a" config-ref="HTTP_Listener_config" path="/delete/{wh}"/>
+		<db:stored-procedure doc:name="Stored procedure" doc:id="1170a8e7-fef2-4ee3-9db0-d1a0c26f45ff" config-ref="Database_Config">
+			<db:sql ><![CDATA[{call delete_wh(:wh)}]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	wh: attributes.uriParams.wh
+}]]]></db:input-parameters>
+		</db:stored-procedure>
+	</flow>
+	<flow name="helloworldFlow1" doc:id="787fa398-ee54-4400-aa3d-8da78e8c6ef6" >
+		<ee:transform doc:name="Transform Message" doc:id="2593ccce-954b-4f22-8e26-578d79d58f3f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+---
+{
+	metadata: {
+		name: payload.Name,
+		age: payload.Age
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="helloworldFlow2" doc:id="888071ea-6b85-4094-b2d9-1e3436902b23" >
+		<ee:transform doc:name="Transform Message" doc:id="bf24b30f-3aa0-4961-845a-0b51beab2c21" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	Name: payload.metadata.name,
+	Age: payload.metadata.age
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="helloworldFlow6" doc:id="9dc6b2ea-26bc-478e-a1c3-b4212aa3d93c" >
+		<http:listener doc:name="Listener" doc:id="e924324b-4640-41ab-bfdb-9ad1f1bc4f75" config-ref="HTTP_Listener_config" path="/read" />
+		<file:read doc:name="Read" doc:id="2d154448-ba1f-4775-94b4-a150bb73dfb8" config-ref="File_Config" path='#["C:\Users\G68\OneDrive - Capgemini\Desktop\Ftp-Home\Report.pdf"]'/>
+		<logger level="INFO" doc:name="Logger" doc:id="eee691f2-eece-45a7-9dfb-8519ea81e71e" message='#["payload is:" ++ payload]'/>
+	</flow>
+	<flow name="helloworldFlow7" doc:id="a0161889-557f-4d0f-97cb-6025bef398d5" >
+		<sftp:listener doc:name="On New or Updated File" doc:id="b130b283-159b-4360-87ac-54bbf7f939e2" config-ref="SFTP_Config">
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</sftp:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="dece460c-c3fa-49d1-b534-0504d7a0e897" message='"payload is:" #[payload]'/>
+	</flow>
+	<flow name="connectorFlow" doc:id="673c6b37-9666-4f51-bc9e-43a8ea5a5f2d" >
+		<http:listener doc:name="Listener" doc:id="f9821847-2956-4808-bc34-45062392f965" config-ref="HTTP_Listener_config" path="/read"/>
+		<sftp:read doc:name="Read" doc:id="68293d60-efd1-43ff-b937-d0c41364697b" config-ref="SFTP_Config" path="/sftp.txt"/>
+	</flow>
+</mule>

@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object",
+          "xml": {
+            "name": "contactEntity"
+          },
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "address": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "contactAddressGet"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "line1": {
+                    "type": "string"
+                  },
+                  "line2": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "isPrimary": {
+                    "type": "boolean"
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "email": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "contactEmailGet"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "isPrimary": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "phone": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "contactPhoneGet"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "integer"
+                  },
+                  "extension": {
+                    "type": "string"
+                  },
+                  "isPrimary": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "country": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "context": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "associationId": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "role": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "role"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "deleted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

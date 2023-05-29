@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3668d5c3-f700-411b-a5f5-d42ad2d984f2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="routersnscopesFlow" doc:id="0f74cc5d-3e80-4a55-9a92-aa4c638b9c7a" >
+		<http:listener doc:name="Listener" doc:id="ee0ab427-9813-4859-b523-cfee2add7cae" config-ref="HTTP_Listener_config" path="/scatter"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="da134dbd-a0a9-4f91-8a74-e29a05e984c5" >
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="24efbf57-8423-4a90-83c8-f67bf701fd3b" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{name: "Gourav"}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="ac14dc06-da1f-4eed-990f-30456a8f2453" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{age: 22}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+			<route >
+				<ee:transform doc:name="Transform Message" doc:id="a713a1d5-e5f0-40b2-b09a-56b9f394f853">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{gender: "Male"}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="c01fbe88-d171-4ff6-85d8-e1ee267fff7e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload..payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="routersnscopesFlow1" doc:id="aa25cec6-4667-4278-924f-854142ff22b0" >
+		<http:listener doc:name="Listener" doc:id="28437182-54c9-4f3b-8c39-cbcb099eb31c" config-ref="HTTP_Listener_config" path="/choice" allowedMethods="GET"/>
+		<parallel-foreach doc:name="Parallel For Each" doc:id="51271ddf-5648-47b3-bcfb-0d53d8cbb8f4" collection="#[payload]">
+			<choice doc:name="Choice" doc:id="07a1e406-872f-4f60-9e51-8491095497e7">
+			<when expression='#[payload.tech=="mulesoft"]'>
+				<ee:transform doc:name="Transform Message" doc:id="4bca64d9-931c-476d-86fa-3ca17d26808c">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload ++ {bonus: 50}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+			</when>
+			<when expression='#[payload.tech==".net"]'>
+				<ee:transform doc:name="Transform Message" doc:id="f276d130-b24a-4c72-90c6-2c0a5b56f7da">
+							<ee:message>
+								<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload++{bonus: 20}]]></ee:set-payload>
+							</ee:message>
+						</ee:transform>
+			</when>
+			<otherwise>
+				<ee:transform doc:name="Transform Message" doc:id="af9c36e2-1cf7-4c03-8d1c-eb01575f2fe0">
+							<ee:message>
+								<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload++{bonus: 30}]]></ee:set-payload>
+							</ee:message>
+						</ee:transform>
+			</otherwise>
+		</choice>
+		</parallel-foreach>
+		<ee:transform doc:name="Transform Message" doc:id="5498c9d2-bfb3-4823-9d12-4ed59a3ba5d8" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

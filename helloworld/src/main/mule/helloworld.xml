@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e2b85c61-8bb6-49a0-9922-c0f92cb28b05" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="121c82cb-d184-4edd-8978-b978dcac0885" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<flow name="helloworldFlow" doc:id="3da4a6ec-1160-44a3-be7d-42af5c3a138b" >
+		<http:listener doc:name="Listener" doc:id="e2d621b4-84c2-4213-803b-df7738d465aa" config-ref="HTTP_Listener_config" path="/test"/>
+		<ee:transform doc:name="Transform Message" doc:id="2fc3aa39-1cf5-4062-bdb7-f4868d8c76d9">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/xml
+---
+data:{
+	Name: "Gourav",
+	Age: 21,
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="POST" doc:name="Request" doc:id="a0be8020-e43c-421b-a0b6-4931c388fa94" config-ref="HTTP_Request_configuration" path="/json" target="theResult">
+			<ee:repeatable-file-store-stream inMemorySize="1024" />
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="7c35bbc6-ccc4-4c22-ad65-421245f75123" message='message is: #[payload]'/>
+	</flow>
+	<flow name="helloworldFlow1" doc:id="59f8c3b5-0b80-4395-8656-9655fe49efad" >
+		<http:listener doc:name="Listener" doc:id="d7300f84-e7ac-41f7-ba3f-18b422ad05fe" config-ref="HTTP_Listener_config" path="/json"/>
+		<ee:transform doc:name="Transform Message" doc:id="c1a4e276-31e7-448a-92b1-079229fb0a83" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<set-payload value="payload" doc:name="Set Payload" doc:id="2dfb2804-c5b2-4f41-a648-3d55e044394f" />
+	</flow>
+</mule>

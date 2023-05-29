@@ -1,0 +1,582 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "carrierPostRequest"
+      },
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "address"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "scac": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "scac": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "federalEIN": {
+          "type": "string"
+        },
+        "arb": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "notes": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "code": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "country": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "deleted": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "email",
+              "type"
+            ],
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "number",
+              "type"
+            ],
+            "properties": {
+              "number": {
+                "type": "integer"
+              },
+              "extension": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mcNumber": {
+          "type": "integer"
+        },
+        "dotNumber": {
+          "type": "integer"
+        },
+        "owner": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "userId": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "billing": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "email": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "primary": {
+                  "type": "string"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "number": {
+                  "type": "integer"
+                },
+                "extension": {
+                  "type": "integer"
+                },
+                "country": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "fax": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "number": {
+                  "type": "string"
+                }
+              }
+            },
+            "contact": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "claims": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "email": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "primary": {
+                  "type": "string"
+                }
+              }
+            },
+            "phone": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "number": {
+                  "type": "integer"
+                },
+                "extension": {
+                  "type": "integer"
+                },
+                "country": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "fax": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "number": {
+                  "type": "string"
+                }
+              }
+            },
+            "contact": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "equipment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "qty": {
+                "type": "integer"
+              },
+              "size": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "insurance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "amount": {
+                "type": "integer"
+              },
+              "expirationDate": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "producer": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "policyNo": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "refCoverage": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "paymentMethod": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "paymentMethodCarrierPost"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "payTo": {
+                "type": "string"
+              },
+              "bankName": {
+                "type": "string"
+              },
+              "routingNumber": {
+                "type": "integer"
+              },
+              "accountNumber": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "accountType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "fee": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "feeType": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "value": {
+                    "type": "integer"
+                  },
+                  "percent": {
+                    "type": "integer"
+                  },
+                  "step": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "attributes": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "isDefault": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "address": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "line1": {
+                    "type": "string"
+                  },
+                  "line2": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "isPrimary": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "factor": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mode": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "code": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "service": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "code": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "authority": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "commonAuthority": {
+              "type": "string"
+            },
+            "contractAuthority": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "tagPostRequest"
+      },
+      "additionalProperties": true,
+      "required": [
+        "tagName",
+        "tagScope",
+        "tagType"
+      ],
+      "properties": {
+        "tagName": {
+          "type": "string"
+        },
+        "tagScope": {
+          "type": "string"
+        },
+        "tagType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension-documentation>
+    <configs>
+        <config name="config">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[Proxy Configurations.]]></description>
+                </parameter>
+                <parameter name="invoiceCustomFields">
+                    <description><![CDATA[Invoices custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="invoiceLinesCustomFields">
+                    <description><![CDATA[Invoice lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="purchaseOrdersCustomFields">
+                    <description><![CDATA[Purchase orders custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="purchaseOrderLinesCustomFields">
+                    <description><![CDATA[Purchase order lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="inventoryTransactionsCustomFields">
+                    <description><![CDATA[Inventory transactions custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="requisitionsCustomFields">
+                    <description><![CDATA[Requisitions custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="requisitionLinesCustomFields">
+                    <description><![CDATA[Requisition lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="expenseReportsCustomFields">
+                    <description><![CDATA[Expense reports custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="expenseReportLinesCustomFields">
+                    <description><![CDATA[Expense report lines custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="suppliersCustomFields">
+                    <description><![CDATA[Suppliers custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="supplierInformationCustomFields">
+                    <description><![CDATA[SIM custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="usersCustomFields">
+                    <description><![CDATA[Users custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="lookupValuesCustomFields">
+                    <description><![CDATA[Lookup values custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="addressesCustomFields">
+                    <description><![CDATA[Addresses custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="itemsCustomFields">
+                    <description><![CDATA[Items custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="supplierItemCustomFields">
+                    <description><![CDATA[SupplierItems custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="contractsCustomFields">
+                    <description><![CDATA[Contracts custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="chargeCustomFields">
+                    <description><![CDATA[Charges custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="coupaPayCustomFields">
+                    <description><![CDATA[CoupaPay payments custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="statementCustomFields">
+                    <description><![CDATA[Statements custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="dynamicDiscountCustomFields">
+                    <description><![CDATA[Dynamic discounting custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="projectCustomFields">
+                    <description><![CDATA[Projects custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="advancedShipNoticeCustomFields">
+                    <description><![CDATA[ASN custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="supplierSiteCustomFields">
+                    <description><![CDATA[Supplier Site custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="supplierInformationSiteCustomFields">
+                    <description><![CDATA[SIM Site custom fields. Example: field-one,String; field-two,Integer; field-date,Date_Time; field-ref,Reference:user Available types: String, Integer, Decimal, Date_Time, Reference:user, Reference:lookup-value, Reference:user-group-summary]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+    </configs>
+    <connections>
+        <connection name="coupa-connection">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="coupaInstance">
+                    <description><![CDATA[Coupa Instance URL to establish the connection.]]></description>
+                </parameter>
+                <parameter name="apiKey">
+                    <description><![CDATA[Coupa Instance API Key for API authentication (Deprecated from R35).]]></description>
+                </parameter>
+                <parameter name="clientId">
+                    <description><![CDATA[OIDC authentication credentials (Client ID) for API connectivity.]]></description>
+                </parameter>
+                <parameter name="clientSecret">
+                    <description><![CDATA[OIDC authentication credentials (Client Secret) for API connectivity.]]></description>
+                </parameter>
+                <parameter name="oidcScope">
+                    <description><![CDATA[OIDC authentication credentials (Scope) for restricting API operation.]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[Timeout value for API connectivity.]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[Timeout Unit for provided Timeout Value. Example: DAYS, HOURS, MINUTES, SECONDS, MILLISECONDS, etc.]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+    </connections>
+    <extension name="Coupa">
+        <description><![CDATA[]]></description>
+        <parameters/>
+    </extension>
+    <operations>
+        <operation name="advancedShipNotice">
+            <description><![CDATA[Operation to void ADVANCED_SHIP_NOTICE (ASNs) records in Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="approvals">
+            <description><![CDATA[Operation to support approval/rejection of transaction in Coupa. Actions Supported: Approve or Reject with Comment.]]></description>
+            <parameters>
+                <parameter name="action">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="comment">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createBudgetLineAdjustments">
+            <description><![CDATA[Operation to create budget-adjustment record against respective budgetline in Coupa.]]></description>
+            <parameters>
+                <parameter name="budgetLineId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createComments">
+            <description><![CDATA[Operation to post comment against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports.]]></description>
+            <parameters>
+                <parameter name="object">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="objectId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createItemsSupplierItems">
+            <description><![CDATA[Operation to create supplier-item record against respective item in Coupa.]]></description>
+            <parameters>
+                <parameter name="itemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createObject">
+            <description><![CDATA[CREATE Operation contains list of Coupa Objects that supports POST API call. Note: JSON body is required with this operation.]]></description>
+            <parameters>
+                <parameter name="objectType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createSupplierInformationSite">
+            <description><![CDATA[Operation to create SIM-site against respective SIM record in Coupa.]]></description>
+            <parameters>
+                <parameter name="simId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createSupplierSite">
+            <description><![CDATA[Operation to create supplier-site against respective Supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="cresteSuppliersRemitToAddress">
+            <description><![CDATA[Operation to create Remit-to-address against respective Supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="expenseReports">
+            <description><![CDATA[Operation to submit draft expense report for approval in Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getBudgetLineAdjustments">
+            <description><![CDATA[Operation to get specific budget-adjustment record linked against budgetline in Coupa.]]></description>
+            <parameters>
+                <parameter name="budgetLineId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="budgetLineAdjustmentId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getComments">
+            <description><![CDATA[Operation to get specific comment against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports.]]></description>
+            <parameters>
+                <parameter name="object">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="objectId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="commentId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getImageInvoice">
+            <description><![CDATA[Operation to get image scan document from Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getItemsSupplierItems">
+            <description><![CDATA[Operation to get specific supplier-item record linked against item in Coupa.]]></description>
+            <parameters>
+                <parameter name="itemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="supplierItemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getObject">
+            <description><![CDATA[GET Operation contains list of Coupa Objects that supports GET API call.]]></description>
+            <parameters>
+                <parameter name="objectType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getSupplierInformationSite">
+            <description><![CDATA[Operation to get specific SIM-site linked against SIM record in Coupa.]]></description>
+            <parameters>
+                <parameter name="simId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="simSiteId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getSupplierSite">
+            <description><![CDATA[Operation to get specific supplier-site linked against supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="supplierSiteId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="getSuppliersRemitToAddress">
+            <description><![CDATA[Operation to get specific Remit-to-address linked against Supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="remitToAddressId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="inventoryTransactions">
+            <description><![CDATA[Operation to void Receipt (Inventory Transactions) records in Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="markExportedObject">
+            <description><![CDATA[MARK EXPORTED Operation contains list of Coupa Objects that supports flipping of Exported flag.]]></description>
+            <parameters>
+                <parameter name="objectType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="actionValue">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="purchaseOrders">
+            <description><![CDATA[Operation to perform different actions on Purchase Order in Coupa. Actions Supported: Close, Cancel, Issue, Release PO from buyer hold.]]></description>
+            <parameters>
+                <parameter name="action">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryBudgetLineAdjustments">
+            <description><![CDATA[Operation to query budget-adjustment records linked to respective budgetline in Coupa. Pagination: Supported]]></description>
+            <parameters>
+                <parameter name="budgetLineId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryComments">
+            <description><![CDATA[Operation to query comments against selected object in Coupa. Supported Objects: Invoices, Purchase Orders, Requisitions, Expense Reports. Pagination: Supported.]]></description>
+            <parameters>
+                <parameter name="object">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="objectId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryItemsSupplierItems">
+            <description><![CDATA[Operation to query supplier-item records linked to respective item in Coupa. Pagination: Supported.]]></description>
+            <parameters>
+                <parameter name="itemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryObjects">
+            <description><![CDATA[QUERY Operation contains list of Coupa Objects that supports GET API call. Pagination: Supported.]]></description>
+            <parameters>
+                <parameter name="objectType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="querySupplierInformationSites">
+            <description><![CDATA[Operation to query SIM-sites linked to respective SIM record in Coupa. Pagination: Supported]]></description>
+            <parameters>
+                <parameter name="simId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="querySupplierSites">
+            <description><![CDATA[Operation to query supplier-sites linked to respective Supplier record in Coupa. Pagination: Supported]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="querySuppliersRemitToAddress">
+            <description><![CDATA[Operation to query Remit-to-addresses linked to respective Supplier record in Coupa. Pagination: Supported]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[Allows to set query parameters/filters on Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="params">
+                    <description><![CDATA[Allows to set query parameters to Coupa APIs.]]></description>
+                </parameter>
+                <parameter name="disableOffset">
+                    <description><![CDATA[Allows to enable/disable pagination from Coupa APIs. By Default: Pagination is enabled.]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="receiveAdvancedShipNotice">
+            <description><![CDATA[Operation to receive ADVANCED_SHIP_NOTICE (ASNs) records in Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="fullyConsume">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="requisitions">
+            <description><![CDATA[Operation to perform different actions on Requisition in Coupa. Actions Supported: Create & Submit for approval, Create in draft status.]]></description>
+            <parameters>
+                <parameter name="action">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateItemsSupplierItems">
+            <description><![CDATA[Operation to update supplier-item record linked to respective item in Coupa.]]></description>
+            <parameters>
+                <parameter name="itemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="supplierItemId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateObject">
+            <description><![CDATA[UPDATE Operation contains list of Coupa Objects that supports PUT API call. Note: JSON body is required with this operation.]]></description>
+            <parameters>
+                <parameter name="objectType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateSupplierInformationSite">
+            <description><![CDATA[Operation to update SIM-site linked to respective SIM record in Coupa.]]></description>
+            <parameters>
+                <parameter name="simId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="simSiteId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateSupplierSite">
+            <description><![CDATA[Operation to update supplier-site linked to respective Supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="supplierSiteId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateSuppliersRemitToAddress">
+            <description><![CDATA[Operation to update Remit-to-address linked to respective Supplier record in Coupa.]]></description>
+            <parameters>
+                <parameter name="supplierId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="remitToAddressId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="entity">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="uploadImageInvoice">
+            <description><![CDATA[Operation to upload image scan document to Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="image">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="voidInvoice">
+            <description><![CDATA[Operation to void invoice record in Coupa.]]></description>
+            <parameters>
+                <parameter name="id">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+    </operations>
+    <sources/>
+    <types>
+        <type name="org.mule.extension.coupa.api.CoupaOperatorAttribute">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="field">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="operator">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="value">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="org.mule.extension.coupa.api.CoupaProxyConfiguration">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="host">
+                    <description><![CDATA[Host where the proxy requests will be sent.]]></description>
+                </parameter>
+                <parameter name="port">
+                    <description><![CDATA[Port where the proxy requests will be sent.]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[The username to authenticate against the proxy.]]></description>
+                </parameter>
+                <parameter name="password">
+                    <description><![CDATA[The password to authenticate against the proxy.]]></description>
+                </parameter>
+                <parameter name="nonProxyHosts">
+                    <description><![CDATA[A list of comma separated hosts against which the proxy should not be used]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
+</extension-documentation>

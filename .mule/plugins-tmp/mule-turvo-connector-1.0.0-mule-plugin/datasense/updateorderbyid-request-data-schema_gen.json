@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "start_date_type": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "key"
+      ]
+    },
+    "start_date_from": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "start_date_to": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "end_date_type": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "key"
+      ]
+    },
+    "end_date_from": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "end_date_to": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "start_date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "end_date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    }
+  },
+  "required": [
+    "start_date_type",
+    "start_date_from",
+    "start_date_to",
+    "end_date_type",
+    "end_date_from",
+    "end_date_to",
+    "start_date",
+    "end_date"
+  ]
+}

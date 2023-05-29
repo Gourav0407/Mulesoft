@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Connectors/src/main/mule/helloworld.xml&apos; to &apos;connector.xml&apos;" description="Rename resource &apos;helloworld.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/mule/helloworld.xml" name="connector.xml" stamp="1681365571191" updateReferences="true"/>
+</session>

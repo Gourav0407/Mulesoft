@@ -1,0 +1,40 @@
+#%RAML 1.0
+title: flights-api
+
+protocols:
+  - http
+
+/flights:
+  post:
+    description: post flights timing
+    body:
+      application/json:
+        properties:
+          flightName:
+            type: string
+            required: true
+            example: Indigo
+          arivalTime:
+            type: string
+            required: true
+            example: 9:00
+          departureTime:
+            type: string
+            required: true
+            example: 9:30
+        example:
+          {
+            "flightName": "Indigo",
+            "arivalTime": 9:00,
+            "departureTime": 9:30
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {"message": flight posted successfully}
+        
+
+
+

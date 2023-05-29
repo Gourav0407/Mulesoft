@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="Employee" format="excel">
+      <types:shape format="weave"><![CDATA[%dw 2.0
+
+type Employee = {|
+  Sheet1?: Array<{|    EmployeeId: Number,     EmployeeName: String,     EmployeeContact: String,     EmployeeAddress: String  |}>
+|}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="Employee-json" format="json">
+      <types:shape format="weave" example="examples/Employee.json"><![CDATA[%dw 2.0
+
+type Employee_json = Array<{|  employeeId: Number {"typeId": "int"},   employeeName: String,   contact: String,   address: String|}> {"example": "[{\\\"employeeId\\\":16,\\\"employeeName\\\":\\\"sunil\\\",\\\"contact\\\":\\\"9113429023\\\",\\\"address\\\":\\\"123, vjvnos, dvsdv\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#4cc8cbaf-9396-434f-b13e-59d65eeae563">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="Employee-json"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Employee"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

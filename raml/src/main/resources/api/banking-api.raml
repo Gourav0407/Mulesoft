@@ -1,0 +1,83 @@
+#%RAML 1.0
+title: Banking Api
+
+traits:
+  errorResp: !include trait/errorTrait.raml
+
+securitySchemes:
+  customSecurity: !include securityScheme/customSecurityScheme.raml
+
+securedBy:
+  - customSecurity
+
+uses:
+  customerType: customerlibrary.raml
+
+resourceTypes:
+  resourse: !include ResourseType/bankingResourceType.raml
+
+protocols:
+  - HTTP
+  - HTTPS
+
+/accounts:
+  type:
+    resourse:
+      exampleReference1: !include examples/account.json     
+      exampleReference2: !include examples/account.json
+      exampleReference3: !include examples/accountResp.json
+  get:
+    queryParameters:
+      customerId:
+        type: string
+        required: true
+        example: "cust19382" 
+  post:
+      
+          
+
+  /{accountId}:
+    get:
+    type:
+      resourse:
+        exampleReference1: !include examples/account.json
+          
+  
+    /balances:
+      get:
+      type:
+        resourse:
+          exampleReference1: !include examples/balances.json
+
+    /transections:
+      get:
+        queryParameters:
+          fromDate:
+            type: string
+            required: false
+            example: "03-11-2022"
+          toDate:
+            type: string
+            required: false
+            example: "3-12-2022"
+      type:
+        resourse:
+          exampleReference1: !include examples/transection.json
+      
+      /{transectionId}:
+        get:
+        type:
+          resourse:
+            exampleReference1: !include examples/transection.json
+
+/customers:
+  get:
+    description: fetch all customers
+    is:
+      - errorResp
+    responses:
+      200:
+        body:
+          application/json:
+            type: customerType.customerType[]
+

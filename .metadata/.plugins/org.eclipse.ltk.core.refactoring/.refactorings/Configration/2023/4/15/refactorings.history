@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Configration/src/main/mule/maventest.xml&apos; to &apos;Configration.xml&apos;" description="Rename resource &apos;maventest.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/mule/maventest.xml" name="Configration.xml" stamp="1681366244991" updateReferences="true"/>
+</session>

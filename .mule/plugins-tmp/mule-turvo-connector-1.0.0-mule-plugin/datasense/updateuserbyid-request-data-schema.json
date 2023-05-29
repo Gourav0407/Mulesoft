@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "userPutRequest"
+      },
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "permission": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "code": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "userAddressPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "userEmailPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "userPhonePut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "extension": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "group": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "userGroupPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "permission",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "permission": {
+                "type": "string"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

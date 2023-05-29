@@ -1,0 +1,7 @@
+%dw 2.0
+
+type auto_543370b0_a8f8_45e7_b635_435339575236_Output_Payload = {
+  Accounts: Array<{    "Creation Date": String,     Type: "Personal" | "Bussiness",     "Air Miles": Number,     Address: String,     Id: Number,     Name: String,     _?: Any  }>, 
+  _?: Any
+}
+

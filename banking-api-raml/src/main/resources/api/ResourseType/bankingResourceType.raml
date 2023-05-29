@@ -1,0 +1,27 @@
+#%RAML 1.0 ResourceType
+
+get?:
+  description: Used to fetch <<resourcePathName>>
+  is:
+    - errorResp
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            <<exampleReference1>>
+  
+post?:
+  description: Used to create <<resourcePathName>>
+  body:
+    application/json:
+      example:
+        <<exampleReference2>>
+  is:
+    - errorResp
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            <<exampleReference3>>

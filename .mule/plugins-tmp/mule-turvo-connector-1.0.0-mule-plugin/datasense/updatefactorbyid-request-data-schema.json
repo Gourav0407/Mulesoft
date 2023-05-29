@@ -1,0 +1,282 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "factorPutRequest"
+      },
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "xml": {
+            "name": "address",
+            "wrapped": true
+          },
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "factorAddressPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "country": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "code": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "notes": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "id",
+            "name"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "owner": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "userId",
+            "name"
+          ],
+          "properties": {
+            "userId": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "email": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "factorEmailPut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "phone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "factorPhonePut"
+            },
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "_operation"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "extension": {
+                "type": "string"
+              },
+              "isPrimary": {
+                "type": "boolean"
+              },
+              "country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "paymentMethod": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "paymentMethod"
+            },
+            "additionalProperties": true,
+            "required": [
+              "_operation"
+            ],
+            "properties": {
+              "payTo": {
+                "type": "string"
+              },
+              "bankName": {
+                "type": "string"
+              },
+              "routingNumber": {
+                "type": "integer"
+              },
+              "accountNumber": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "accountType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "_operation": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

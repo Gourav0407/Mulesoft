@@ -1,0 +1,56 @@
+#%RAML 1.0 Library
+
+types:
+  customerType:
+    properties:
+      firstName:
+        type: string
+        example: Pranav
+      lastName:
+        type: string
+        required: false
+        example: Garg
+      address:
+        type: Address[]
+        required: true
+      phone:
+        type: Phone[]
+        required: true
+
+  Address:
+    properties:
+      street:
+        type: string
+        required: true
+        example: sector 9, Airoli
+      city:
+        type: string
+        required: true
+        example: Mumbai
+      state:
+        type: string
+        required: true
+        example: Maharastra
+      country:
+        type: string
+        required: true
+        example: India
+      postalCode:
+        type: string
+        example: "400708"
+      addressType:
+        enum: [Office, Home]
+        example: Home
+
+  Phone:
+    properties:
+      phoneNo:
+        type: string
+        example: "7831301931"
+      phoneType:
+        enum:
+          - Home
+          - Office
+        example: Office
+
+      

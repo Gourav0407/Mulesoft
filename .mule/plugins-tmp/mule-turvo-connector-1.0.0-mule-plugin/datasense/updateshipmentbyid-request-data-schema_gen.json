@@ -1,0 +1,1828 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "ltlShipment": {
+      "type": "boolean"
+    },
+    "services": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        }
+      ]
+    },
+    "startDate": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "timezone"
+      ]
+    },
+    "endDate": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "timezone"
+      ]
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "notes"
+      ]
+    },
+    "groups": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "_operation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "_operation"
+          ]
+        }
+      ]
+    },
+    "margin": {
+      "type": "object",
+      "properties": {
+        "minPay": {
+          "type": "integer"
+        },
+        "maxPay": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minPay",
+        "maxPay"
+      ]
+    },
+    "lane": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ]
+    },
+    "equipment": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "temp": {
+              "type": "integer"
+            },
+            "size": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "_operation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "weight",
+            "temp",
+            "size",
+            "_operation"
+          ]
+        }
+      ]
+    },
+    "globalRoute": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "schedulingType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "stopType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "segmentSequence": {
+              "type": "integer"
+            },
+            "sequence": {
+              "type": "integer"
+            },
+            "state": {
+              "type": "string"
+            },
+            "appointment": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "flex": {
+                  "type": "integer"
+                },
+                "hasTime": {
+                  "type": "boolean"
+                },
+                "timeZone": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "date",
+                "flex",
+                "hasTime",
+                "timeZone"
+              ]
+            },
+            "services": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ]
+                }
+              ]
+            },
+            "poNumbers": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "notes": {
+              "type": "string"
+            },
+            "recalculateDistance": {
+              "type": "boolean"
+            },
+            "contact": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "customerOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "customerId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "customerId",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "carrierOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "carrierId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "carrierId",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "_operation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "schedulingType",
+            "stopType",
+            "timezone",
+            "location",
+            "segmentSequence",
+            "sequence",
+            "state",
+            "appointment",
+            "services",
+            "poNumbers",
+            "notes",
+            "recalculateDistance",
+            "contact",
+            "customerOrder",
+            "carrierOrder",
+            "_operation"
+          ]
+        }
+      ]
+    },
+    "flexAttributes": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "value": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "account": {
+              "type": "string"
+            },
+            "shareable": {
+              "type": "boolean"
+            },
+            "_operation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "value",
+            "name",
+            "account",
+            "shareable",
+            "_operation"
+          ]
+        }
+      ]
+    },
+    "carrierOrder": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "_operation": {
+              "type": "integer"
+            },
+            "carrier": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "owner": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "id",
+                "owner"
+              ]
+            },
+            "costs": {
+              "type": "object",
+              "properties": {
+                "totalAmount": {
+                  "type": "integer"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "lineItem": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "_operation": {
+                          "type": "integer"
+                        },
+                        "code": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "qty": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "notes": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "_operation",
+                        "code",
+                        "qty",
+                        "price",
+                        "amount",
+                        "notes"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "totalAmount",
+                "notes",
+                "lineItem"
+              ]
+            },
+            "payment": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "notes": {
+                      "type": "string"
+                    },
+                    "paymentDate": {
+                      "type": "string"
+                    },
+                    "paymentMethod": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "templateId": {
+                          "type": "string"
+                        },
+                        "payTo": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "fees": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "integer"
+                                },
+                                "percent": {
+                                  "type": "integer"
+                                },
+                                "step": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "value",
+                                "percent",
+                                "step"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "templateId",
+                        "payTo",
+                        "type",
+                        "fees"
+                      ]
+                    },
+                    "paymentTerm": {
+                      "type": "object",
+                      "properties": {
+                        "templateId": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "fees": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "deductFrom": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "integer"
+                                },
+                                "percent": {
+                                  "type": "integer"
+                                },
+                                "step": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "deductFrom",
+                                "value",
+                                "percent",
+                                "step"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "templateId",
+                        "id",
+                        "name",
+                        "type",
+                        "fees"
+                      ]
+                    },
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "total_fee": {
+                      "type": "integer"
+                    },
+                    "total_amount": {
+                      "type": "integer"
+                    },
+                    "fees": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "value"
+                          ]
+                        }
+                      ]
+                    },
+                    "invoice": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "invoiceNo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "documentId",
+                        "name",
+                        "invoiceNo"
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "notes",
+                    "paymentDate",
+                    "paymentMethod",
+                    "paymentTerm",
+                    "amount",
+                    "total_fee",
+                    "total_amount",
+                    "fees",
+                    "invoice",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "deduction": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "issueDate": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "invoice": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "invoiceNo": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "documentId",
+                        "name",
+                        "invoiceNo"
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "issueDate",
+                    "name",
+                    "invoice",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "externalIds": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "id",
+                    "value",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "contacts": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "shipContactId": {
+                      "type": "integer"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "email",
+                            "type"
+                          ]
+                        }
+                      ]
+                    },
+                    "phone": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "number": {
+                              "type": "integer"
+                            },
+                            "extension": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "key"
+                              ]
+                            },
+                            "type": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "number",
+                            "extension",
+                            "country",
+                            "type"
+                          ]
+                        }
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "role",
+                    "shipContactId",
+                    "id",
+                    "title",
+                    "name",
+                    "email",
+                    "phone",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "flexAttributes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "shareable": {
+                      "type": "boolean"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "value",
+                    "name",
+                    "account",
+                    "shareable",
+                    "_operation"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "_operation",
+            "carrier",
+            "costs",
+            "payment",
+            "deduction",
+            "externalIds",
+            "contacts",
+            "flexAttributes"
+          ]
+        }
+      ]
+    },
+    "customerOrder": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "_operation": {
+              "type": "integer"
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "owner"
+              ]
+            },
+            "totalMiles": {
+              "type": "integer"
+            },
+            "items": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    },
+                    "dimensions": {
+                      "type": "object",
+                      "properties": {
+                        "height": {
+                          "type": "integer"
+                        },
+                        "width": {
+                          "type": "integer"
+                        },
+                        "length": {
+                          "type": "integer"
+                        },
+                        "units": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "height",
+                        "width",
+                        "length",
+                        "units"
+                      ]
+                    },
+                    "itemCategory": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "qty": {
+                      "type": "integer"
+                    },
+                    "unit": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "pickupLocation": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ]
+                        }
+                      ]
+                    },
+                    "deliveryLocation": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ]
+                        }
+                      ]
+                    },
+                    "itemNumber": {
+                      "type": "string"
+                    },
+                    "nmfc": {
+                      "type": "string"
+                    },
+                    "nmfcSub": {
+                      "type": "string"
+                    },
+                    "isHazmat": {
+                      "type": "boolean"
+                    },
+                    "weight": {
+                      "type": "integer"
+                    },
+                    "freightClass": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "value": {
+                      "type": "integer"
+                    },
+                    "temperature": {
+                      "type": "integer"
+                    },
+                    "vin": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "make": {
+                          "type": "string"
+                        },
+                        "model": {
+                          "type": "string"
+                        },
+                        "year": {
+                          "type": "integer"
+                        },
+                        "color": {
+                          "type": "string"
+                        },
+                        "wheelbase": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "make",
+                        "model",
+                        "year",
+                        "color",
+                        "wheelbase"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "_operation",
+                    "dimensions",
+                    "itemCategory",
+                    "qty",
+                    "unit",
+                    "name",
+                    "notes",
+                    "pickupLocation",
+                    "deliveryLocation",
+                    "itemNumber",
+                    "nmfc",
+                    "nmfcSub",
+                    "isHazmat",
+                    "weight",
+                    "freightClass",
+                    "value",
+                    "temperature",
+                    "vin"
+                  ]
+                }
+              ]
+            },
+            "paysUnloading": {
+              "type": "boolean"
+            },
+            "costs": {
+              "type": "object",
+              "properties": {
+                "totalAmount": {
+                  "type": "integer"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "lineItem": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "qty": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "billable": {
+                          "type": "boolean"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "_operation": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "qty",
+                        "price",
+                        "amount",
+                        "billable",
+                        "notes",
+                        "id",
+                        "_operation"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "totalAmount",
+                "notes",
+                "lineItem"
+              ]
+            },
+            "payment": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "referenceNo": {
+                      "type": "string"
+                    },
+                    "paymentDate": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "fees": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "invoice": {
+                      "type": "object",
+                      "properties": {
+                        "documentId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "invoiceDate": {
+                          "type": "string"
+                        },
+                        "invoiceNo": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "documentId",
+                        "name",
+                        "invoiceDate",
+                        "invoiceNo",
+                        "status"
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "referenceNo",
+                    "paymentDate",
+                    "type",
+                    "fees",
+                    "notes",
+                    "invoice",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "externalIds": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "id",
+                    "value",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "contacts": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "shipContactId": {
+                      "type": "integer"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "email",
+                            "type"
+                          ]
+                        }
+                      ]
+                    },
+                    "phone": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "number": {
+                              "type": "integer"
+                            },
+                            "extension": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "key"
+                              ]
+                            },
+                            "type": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "number",
+                            "extension",
+                            "country",
+                            "type"
+                          ]
+                        }
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "role",
+                    "shipContactId",
+                    "id",
+                    "title",
+                    "name",
+                    "email",
+                    "phone",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "flexAttributes": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "shareable": {
+                      "type": "boolean"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "value",
+                    "name",
+                    "account",
+                    "shareable",
+                    "_operation"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "_operation",
+            "customer",
+            "totalMiles",
+            "items",
+            "paysUnloading",
+            "costs",
+            "payment",
+            "externalIds",
+            "contacts",
+            "flexAttributes"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "ltlShipment",
+    "services",
+    "startDate",
+    "endDate",
+    "status",
+    "groups",
+    "margin",
+    "lane",
+    "equipment",
+    "globalRoute",
+    "flexAttributes",
+    "carrierOrder",
+    "customerOrder"
+  ]
+}

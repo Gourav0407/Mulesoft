@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8787eb0e-869d-4d6c-b08f-ebac991fb454" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="ReadInJsonFlow" doc:id="18007a9f-6c4b-47ca-a2fd-dbf3063dce8d" >
+		<http:listener doc:name="Listener" doc:id="7b8bbdc0-7d09-40ef-ace1-45ceb995d52a" config-ref="HTTP_Listener_config" path="/read"/>
+		<file:list doc:name="List" doc:id="07a11b0a-e2b6-4e53-80ec-2ca5759e2c39" config-ref="File_Config" directoryPath="Processed"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7177f680-f916-488f-932e-75942ba85ab4" message="#[typeOf(payload)]"/>
+		<ee:transform doc:name="Transform Message" doc:id="03788098-f5f5-4f78-953f-8fc0207b624c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

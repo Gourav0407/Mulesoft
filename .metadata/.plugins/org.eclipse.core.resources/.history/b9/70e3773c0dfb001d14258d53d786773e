@@ -1,0 +1,6 @@
+{
+		"EmployeeId": 1,
+		"EmployeeName": "Rajesh Gupta",
+        "EmployeeContact": "91-9876543210",
+        "EmployeeAddress": "123, Main Street, New Delhi, India"
+}

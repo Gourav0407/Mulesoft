@@ -1,0 +1,1446 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Status": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "customId": {
+          "type": "string"
+        },
+        "ltlShipment": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        },
+        "services": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            }
+          ]
+        },
+        "startDate": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "timezone"
+          ]
+        },
+        "endDate": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "date",
+            "timezone"
+          ]
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "note": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string"
+                },
+                "lon": {
+                  "type": "number"
+                },
+                "lat": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "city",
+                "lon",
+                "lat"
+              ]
+            },
+            "statusDate": {
+              "type": "object",
+              "properties": {
+                "localDateTime": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "localDateTime",
+                "date"
+              ]
+            },
+            "dispatchedDate": {
+              "type": "object",
+              "properties": {
+                "localDateTime": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "localDateTime",
+                "date"
+              ]
+            },
+            "deliveredDate": {
+              "type": "object",
+              "properties": {
+                "localDateTime": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "localDateTime",
+                "date"
+              ]
+            }
+          },
+          "required": [
+            "code",
+            "note",
+            "location",
+            "statusDate",
+            "dispatchedDate",
+            "deliveredDate"
+          ]
+        },
+        "margin": {
+          "type": "object",
+          "properties": {
+            "minPay": {
+              "type": "integer"
+            },
+            "maxPay": {
+              "type": "integer"
+            },
+            "totalReceivableAmount": {
+              "type": "integer"
+            },
+            "totalPayableAmount": {
+              "type": "number"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "value": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "minPay",
+            "maxPay",
+            "totalReceivableAmount",
+            "totalPayableAmount",
+            "amount",
+            "value"
+          ]
+        },
+        "equipment": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ]
+                },
+                "weight": {
+                  "type": "integer"
+                },
+                "temp": {
+                  "type": "integer"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "size": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "weight",
+                "temp",
+                "deleted",
+                "size"
+              ]
+            }
+          ]
+        },
+        "lane": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer"
+            },
+            "end": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ]
+        },
+        "customerOrder": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "customer": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    },
+                    "commission": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "userId": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "userId",
+                            "value"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "owner",
+                    "commission"
+                  ]
+                },
+                "totalMiles": {
+                  "type": "integer"
+                },
+                "items": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deleted": {
+                          "type": "boolean"
+                        },
+                        "dimensions": {
+                          "type": "object",
+                          "properties": {
+                            "height": {
+                              "type": "integer"
+                            },
+                            "width": {
+                              "type": "integer"
+                            },
+                            "length": {
+                              "type": "integer"
+                            },
+                            "units": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "height",
+                            "width",
+                            "length",
+                            "units"
+                          ]
+                        },
+                        "itemCategory": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "qty": {
+                          "type": "integer"
+                        },
+                        "unit": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "notes": {
+                          "type": "string"
+                        },
+                        "pickupLocation": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "globalShipLocationSourceId": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "globalShipLocationSourceId",
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        "deliveryLocation": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "globalShipLocationSourceId": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "globalShipLocationSourceId",
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "itemNumber": {
+                          "type": "string"
+                        },
+                        "nmfc": {
+                          "type": "string"
+                        },
+                        "nmfcSub": {
+                          "type": "string"
+                        },
+                        "isHazmat": {
+                          "type": "boolean"
+                        },
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "freightClass": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "value": {
+                          "type": "integer"
+                        },
+                        "temperature": {
+                          "type": "integer"
+                        },
+                        "vin": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "make": {
+                              "type": "string"
+                            },
+                            "model": {
+                              "type": "string"
+                            },
+                            "year": {
+                              "type": "integer"
+                            },
+                            "color": {
+                              "type": "string"
+                            },
+                            "wheelbase": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "make",
+                            "model",
+                            "year",
+                            "color",
+                            "wheelbase"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "deleted",
+                        "dimensions",
+                        "itemCategory",
+                        "qty",
+                        "unit",
+                        "name",
+                        "notes",
+                        "pickupLocation",
+                        "deliveryLocation",
+                        "id",
+                        "itemNumber",
+                        "nmfc",
+                        "nmfcSub",
+                        "isHazmat",
+                        "weight",
+                        "freightClass",
+                        "value",
+                        "temperature",
+                        "vin"
+                      ]
+                    }
+                  ]
+                },
+                "costs": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "integer"
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "lineItem": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "deleted": {
+                              "type": "boolean"
+                            },
+                            "code": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            },
+                            "qty": {
+                              "type": "integer"
+                            },
+                            "price": {
+                              "type": "integer"
+                            },
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "billable": {
+                              "type": "boolean"
+                            },
+                            "notes": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "deleted",
+                            "code",
+                            "qty",
+                            "price",
+                            "amount",
+                            "billable",
+                            "notes",
+                            "id"
+                          ]
+                        }
+                      ]
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "notes",
+                    "lineItem",
+                    "deleted"
+                  ]
+                },
+                "externalIds": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deleted": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "deleted",
+                        "type",
+                        "id",
+                        "value"
+                      ]
+                    }
+                  ]
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "shipContactId": {
+                          "type": "integer"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "deleted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "email",
+                                "type",
+                                "deleted"
+                              ]
+                            }
+                          ]
+                        },
+                        "phone": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "number": {
+                                  "type": "integer"
+                                },
+                                "extension": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "country": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "key"
+                                  ]
+                                },
+                                "deleted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "number",
+                                "extension",
+                                "type",
+                                "country",
+                                "deleted"
+                              ]
+                            }
+                          ]
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "role",
+                        "shipContactId",
+                        "id",
+                        "title",
+                        "name",
+                        "email",
+                        "phone",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                },
+                "flexAttributes": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "account": {
+                          "type": "string"
+                        },
+                        "shareable": {
+                          "type": "boolean"
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "value",
+                        "name",
+                        "account",
+                        "shareable",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                },
+                "payment": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "referenceNo": {
+                          "type": "integer"
+                        },
+                        "paymentDate": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "fees": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "invoice": {
+                          "type": "object",
+                          "properties": {
+                            "documentId": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "invoiceNo": {
+                              "type": "integer"
+                            },
+                            "invoiceDate": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "documentId",
+                            "name",
+                            "invoiceNo",
+                            "invoiceDate",
+                            "status"
+                          ]
+                        },
+                        "notes": {
+                          "type": "null"
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "amount",
+                        "referenceNo",
+                        "paymentDate",
+                        "type",
+                        "fees",
+                        "invoice",
+                        "notes",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "deleted",
+                "customer",
+                "totalMiles",
+                "items",
+                "costs",
+                "externalIds",
+                "contacts",
+                "flexAttributes",
+                "payment"
+              ]
+            }
+          ]
+        },
+        "carrierOrder": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "carrier": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "owner": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "id"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "id",
+                    "owner"
+                  ]
+                },
+                "costs": {
+                  "type": "object",
+                  "properties": {
+                    "totalAmount": {
+                      "type": "integer"
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "lineItem": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "deleted": {
+                              "type": "boolean"
+                            },
+                            "code": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            },
+                            "qty": {
+                              "type": "integer"
+                            },
+                            "price": {
+                              "type": "integer"
+                            },
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "id": {
+                              "type": "integer"
+                            },
+                            "notes": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "deleted",
+                            "code",
+                            "qty",
+                            "price",
+                            "amount",
+                            "id",
+                            "notes"
+                          ]
+                        }
+                      ]
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "totalAmount",
+                    "notes",
+                    "lineItem",
+                    "deleted"
+                  ]
+                },
+                "externalIds": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deleted": {
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "deleted",
+                        "type",
+                        "id",
+                        "value"
+                      ]
+                    }
+                  ]
+                },
+                "contacts": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "shipContactId": {
+                          "type": "integer"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "deleted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "email",
+                                "type",
+                                "deleted"
+                              ]
+                            }
+                          ]
+                        },
+                        "phone": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "number": {
+                                  "type": "integer"
+                                },
+                                "extension": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "key",
+                                    "value"
+                                  ]
+                                },
+                                "country": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "key"
+                                  ]
+                                },
+                                "deleted": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "number",
+                                "extension",
+                                "type",
+                                "country",
+                                "deleted"
+                              ]
+                            }
+                          ]
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "role",
+                        "shipContactId",
+                        "id",
+                        "title",
+                        "name",
+                        "email",
+                        "phone",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                },
+                "flexAttributes": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "account": {
+                          "type": "string"
+                        },
+                        "shareable": {
+                          "type": "boolean"
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "value",
+                        "name",
+                        "account",
+                        "shareable",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                },
+                "deduction": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "issueDate": {
+                          "type": "string"
+                        },
+                        "deleted": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "amount",
+                        "description",
+                        "date",
+                        "issueDate",
+                        "deleted"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "deleted",
+                "carrier",
+                "costs",
+                "externalIds",
+                "contacts",
+                "flexAttributes",
+                "deduction"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "customId",
+        "ltlShipment",
+        "phase",
+        "services",
+        "startDate",
+        "endDate",
+        "status",
+        "margin",
+        "equipment",
+        "lane",
+        "customerOrder",
+        "carrierOrder"
+      ]
+    }
+  },
+  "required": [
+    "Status",
+    "details"
+  ]
+}

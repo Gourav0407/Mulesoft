@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "globalShipLocationId": {
+          "type": "integer"
+        },
+        "code": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "statusDate": {
+          "type": "object",
+          "properties": {
+            "localDateTime": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "localDateTime",
+            "date",
+            "timezone"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "lon": {
+              "type": "number"
+            },
+            "lat": {
+              "type": "number"
+            },
+            "globalShipLocationId": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "city",
+            "name",
+            "lon",
+            "lat",
+            "globalShipLocationId"
+          ]
+        },
+        "postType": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        }
+      },
+      "required": [
+        "globalShipLocationId",
+        "code",
+        "timezone",
+        "notes",
+        "statusDate",
+        "location",
+        "postType"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "status"
+  ]
+}

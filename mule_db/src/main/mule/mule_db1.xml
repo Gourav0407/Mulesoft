@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4f8312a4-8c13-4920-a5b0-ba49b4567c58" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="mule_db1Flow" doc:id="a10a2823-5853-4448-85c9-66d1e5746c19" >
+		<http:listener doc:name="Listener" doc:id="93e4c54b-1783-4a72-9930-e0c19618c1d0" config-ref="HTTP_Listener_config" path="/insert" allowedMethods="POST"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f1686b96-2a67-4825-b844-9df350ed81be" />
+		<db:insert doc:name="Insert" doc:id="fdde17b0-c003-4c98-8d59-35f998e92e95" config-ref="Database_Config1">
+			<db:sql ><![CDATA[insert into demo.student1 values(:Firstname, :Lastname, :place);]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	Firstname:payload.firstName,
+	Lastname:payload.lastName,
+	place:payload.nationalIDType
+}]]]></db:input-parameters>
+		</db:insert>
+		<ee:transform doc:name="Transform Message" doc:id="96e50a6b-0af7-4f8e-8744-82ccf3b8794e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="260abe82-c494-472c-baae-0c8c1403c325" message='#["flow ended"]'/>
+	</flow>
+</mule>

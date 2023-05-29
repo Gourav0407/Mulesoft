@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="metadata" format="xml">
+      <types:example format="xml" element="metadata" location="examples/metadata.xml"/>
+    </types:type>
+    <types:type name="meta" format="json">
+      <types:shape format="weave" example="examples/metadata-2.json"><![CDATA[%dw 2.0
+
+type meta = {|
+  Name: String, 
+  Age: Number {"typeId": "int"}
+|} {"example": "{\\\"Name\\\":\\\"Gourav\\\",\\\"Age\\\":21}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#bf24b30f-3aa0-4961-845a-0b51beab2c21">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="metadata"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="meta"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#2593ccce-954b-4f22-8e26-578d79d58f3f">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="meta"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="metadata"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

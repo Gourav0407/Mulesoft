@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/attributes",
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

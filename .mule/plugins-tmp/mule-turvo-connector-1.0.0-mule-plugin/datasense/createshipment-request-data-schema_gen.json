@@ -1,0 +1,1275 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "link": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "emailTo": {
+          "type": "object",
+          "properties": {
+            "daysToExpire": {
+              "type": "integer"
+            },
+            "emails": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "contacts": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              ]
+            },
+            "triggerStatus": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "daysToExpire",
+            "emails",
+            "contacts",
+            "triggerStatus"
+          ]
+        },
+        "linkType": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "emailTo",
+        "linkType"
+      ]
+    },
+    "ltlShipment": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "key"
+      ]
+    },
+    "startDate": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "timeZone"
+      ]
+    },
+    "endDate": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "flex": {
+          "type": "integer"
+        },
+        "timeZone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "flex",
+        "timeZone"
+      ]
+    },
+    "transportation": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        },
+        "serviceType": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "serviceType"
+      ]
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "notes",
+        "description"
+      ]
+    },
+    "groups": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "_operation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "_operation"
+          ]
+        }
+      ]
+    },
+    "equipment": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "_operation": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "size": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "temp": {
+              "type": "integer"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "_operation",
+            "type",
+            "size",
+            "weight",
+            "temp",
+            "description"
+          ]
+        }
+      ]
+    },
+    "lane": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ]
+    },
+    "globalRoute": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "globalShipLocationSourceId": {
+              "type": "integer"
+            },
+            "appointmentNo": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "_operation": {
+              "type": "integer"
+            },
+            "schedulingType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "stopType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "segmentSequence": {
+              "type": "integer"
+            },
+            "sequence": {
+              "type": "integer"
+            },
+            "state": {
+              "type": "string"
+            },
+            "appointment": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "timeZone": {
+                  "type": "string"
+                },
+                "flex": {
+                  "type": "integer"
+                },
+                "hasTime": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "date",
+                "timeZone",
+                "flex",
+                "hasTime"
+              ]
+            },
+            "services": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ]
+                }
+              ]
+            },
+            "poNumbers": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "notes": {
+              "type": "string"
+            },
+            "customerOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "customerId": {
+                      "type": "integer"
+                    },
+                    "customerOrderSourceId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "customerId",
+                    "customerOrderSourceId",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "carrierOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "carrierId": {
+                      "type": "integer"
+                    },
+                    "carrierOrderSourceId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "carrierId",
+                    "carrierOrderSourceId",
+                    "_operation"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "globalShipLocationSourceId",
+            "appointmentNo",
+            "name",
+            "_operation",
+            "schedulingType",
+            "stopType",
+            "timezone",
+            "location",
+            "segmentSequence",
+            "sequence",
+            "state",
+            "appointment",
+            "services",
+            "poNumbers",
+            "notes",
+            "customerOrder",
+            "carrierOrder"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "globalShipLocationSourceId": {
+              "type": "integer"
+            },
+            "appointmentNo": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "_operation": {
+              "type": "integer"
+            },
+            "schedulingType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "stopType": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "segmentSequence": {
+              "type": "integer"
+            },
+            "sequence": {
+              "type": "integer"
+            },
+            "state": {
+              "type": "string"
+            },
+            "appointment": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "timeZone": {
+                  "type": "string"
+                },
+                "flex": {
+                  "type": "integer"
+                },
+                "hasTime": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "date",
+                "timeZone",
+                "flex",
+                "hasTime"
+              ]
+            },
+            "services": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "value"
+                  ]
+                }
+              ]
+            },
+            "poNumbers": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "notes": {
+              "type": "string"
+            },
+            "customerOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "customerId": {
+                      "type": "integer"
+                    },
+                    "customerOrderSourceId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "customerId",
+                    "customerOrderSourceId",
+                    "_operation"
+                  ]
+                }
+              ]
+            },
+            "carrierOrder": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "carrierId": {
+                      "type": "integer"
+                    },
+                    "customerOrderSourceId": {
+                      "type": "integer"
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "carrierId",
+                    "customerOrderSourceId",
+                    "_operation"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "globalShipLocationSourceId",
+            "appointmentNo",
+            "name",
+            "_operation",
+            "schedulingType",
+            "stopType",
+            "timezone",
+            "location",
+            "segmentSequence",
+            "sequence",
+            "state",
+            "appointment",
+            "services",
+            "poNumbers",
+            "notes",
+            "customerOrder",
+            "carrierOrder"
+          ]
+        }
+      ]
+    },
+    "customerOrder": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "customerOrderSourceId": {
+              "type": "integer"
+            },
+            "_operation": {
+              "type": "integer"
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "dimensions": {
+                      "type": "object",
+                      "properties": {
+                        "length": {
+                          "type": "integer"
+                        },
+                        "width": {
+                          "type": "integer"
+                        },
+                        "height": {
+                          "type": "integer"
+                        },
+                        "units": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "length",
+                        "width",
+                        "height",
+                        "units"
+                      ]
+                    },
+                    "itemCategory": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "qty": {
+                      "type": "integer"
+                    },
+                    "unit": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "notes": {
+                      "type": "string"
+                    },
+                    "pickupLocation": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "globalShipLocationSourceId": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "globalShipLocationSourceId",
+                            "name"
+                          ]
+                        }
+                      ]
+                    },
+                    "deliveryLocation": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "globalShipLocationSourceId": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "globalShipLocationSourceId",
+                            "name"
+                          ]
+                        }
+                      ]
+                    },
+                    "_operation": {
+                      "type": "integer"
+                    },
+                    "itemNumber": {
+                      "type": "string"
+                    },
+                    "lotNumber": {
+                      "type": "string"
+                    },
+                    "nmfc": {
+                      "type": "string"
+                    },
+                    "nmfcSub": {
+                      "type": "string"
+                    },
+                    "isHazmat": {
+                      "type": "boolean"
+                    },
+                    "stackable": {
+                      "type": "boolean"
+                    },
+                    "perishable": {
+                      "type": "boolean"
+                    },
+                    "netWeight": {
+                      "type": "object",
+                      "properties": {
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "weightUnit": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "weight",
+                        "weightUnit"
+                      ]
+                    },
+                    "grossWeight": {
+                      "type": "object",
+                      "properties": {
+                        "weight": {
+                          "type": "integer"
+                        },
+                        "weightUnit": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "weight",
+                        "weightUnit"
+                      ]
+                    },
+                    "freightClass": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    },
+                    "value": {
+                      "type": "integer"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "temp": {
+                      "type": "object",
+                      "properties": {
+                        "temp": {
+                          "type": "integer"
+                        },
+                        "tempUnit": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "temp",
+                        "tempUnit"
+                      ]
+                    },
+                    "volume": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        },
+                        "volumeUnit": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "volumeUnit"
+                      ]
+                    },
+                    "packingGroup": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "hazardClass": {
+                      "type": "string"
+                    },
+                    "shippingName": {
+                      "type": "string"
+                    },
+                    "identification": {
+                      "type": "string"
+                    },
+                    "itemDetails": {
+                      "type": "object",
+                      "properties": {
+                        "_operation": {
+                          "type": "integer"
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "_operation",
+                        "value",
+                        "type"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "deleted",
+                    "dimensions",
+                    "itemCategory",
+                    "qty",
+                    "unit",
+                    "name",
+                    "notes",
+                    "pickupLocation",
+                    "deliveryLocation",
+                    "_operation",
+                    "itemNumber",
+                    "lotNumber",
+                    "nmfc",
+                    "nmfcSub",
+                    "isHazmat",
+                    "stackable",
+                    "perishable",
+                    "netWeight",
+                    "grossWeight",
+                    "freightClass",
+                    "value",
+                    "currency",
+                    "temp",
+                    "volume",
+                    "packingGroup",
+                    "hazardClass",
+                    "shippingName",
+                    "identification",
+                    "itemDetails"
+                  ]
+                }
+              ]
+            },
+            "costs": {
+              "type": "object",
+              "properties": {
+                "subTotal": {
+                  "type": "integer"
+                },
+                "totalTax": {
+                  "type": "integer"
+                },
+                "totalAmount": {
+                  "type": "integer"
+                },
+                "lineItem": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "_operation": {
+                          "type": "integer"
+                        },
+                        "code": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "value"
+                          ]
+                        },
+                        "qty": {
+                          "type": "integer"
+                        },
+                        "price": {
+                          "type": "integer"
+                        },
+                        "amount": {
+                          "type": "integer"
+                        },
+                        "billable": {
+                          "type": "boolean"
+                        },
+                        "notes": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_operation",
+                        "code",
+                        "qty",
+                        "price",
+                        "amount",
+                        "billable",
+                        "notes"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "subTotal",
+                "totalTax",
+                "totalAmount",
+                "lineItem"
+              ]
+            },
+            "externalIds": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "_operation": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "_operation",
+                    "type",
+                    "value"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "customerOrderSourceId",
+            "_operation",
+            "customer",
+            "items",
+            "costs",
+            "externalIds"
+          ]
+        }
+      ]
+    },
+    "carrierOrder": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "carrierOrderSourceId": {
+              "type": "integer"
+            },
+            "carrier": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "name",
+                "id"
+              ]
+            }
+          },
+          "required": [
+            "carrierOrderSourceId",
+            "carrier"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "link",
+    "ltlShipment",
+    "phase",
+    "startDate",
+    "endDate",
+    "transportation",
+    "status",
+    "groups",
+    "equipment",
+    "lane",
+    "globalRoute",
+    "customerOrder",
+    "carrierOrder"
+  ]
+}

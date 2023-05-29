@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "xml": {
+        "name": "taskPutRequest"
+      },
+      "additionalProperties": true,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "Completed task",
+                "Incomplete tasks",
+                "All task"
+              ]
+            },
+            "key": {
+              "type": "string",
+              "enum": [
+                "103232",
+                "103233",
+                "103234"
+              ]
+            }
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "reminder": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "reminder"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "hasTime": {
+                "type": "boolean"
+              },
+              "flex": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dueDate": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "hasTime": {
+              "type": "boolean"
+            }
+          }
+        },
+        "follower": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "follower"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "link": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "link"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "entityId": {
+                "type": "integer"
+              },
+              "entityType": {
+                "type": "string"
+              },
+              "shipmentId/accountId": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assignee": {
+          "type": "object",
+          "xml": {
+            "name": "assignee"
+          },
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

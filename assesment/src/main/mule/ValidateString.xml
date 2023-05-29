@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<flow name="ValidateStringFlow" doc:id="04df5f64-3396-4481-9e91-20a5799f0b37" >
+		<http:listener doc:name="Listener" doc:id="bb57aa7e-3427-4987-bc20-5ec4ceb536f2" config-ref="HTTP_Listener_config" path="/istring"/>
+		<set-payload value='#["Gourav"]' doc:name="Set Payload" doc:id="f7195b66-bb23-4daf-a482-2e43427a8af8" />
+		<validation:is-blank-string doc:name="Is blank string" doc:id="e30fbbab-36ab-4bfa-90b5-02fc3abb3b8e" value="#[payload]"/>
+		<set-payload value='#["Raj"]' doc:name="Set Payload" doc:id="8e65aed5-1df8-4aa7-be7d-303c9db4ed47" />
+	</flow>
+</mule>

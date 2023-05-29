@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "documentId": {
+          "type": "string"
+        },
+        "contextId": {
+          "type": "integer"
+        },
+        "contextType": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "integer"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "documentName": {
+          "type": "string"
+        },
+        "documentDescription": {
+          "type": "string"
+        },
+        "documentStatus": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "integer"
+            }
+          }
+        },
+        "file": {
+          "type": "array",
+          "xml": {
+            "name": "file",
+            "wrapped": true
+          },
+          "items": {
+            "type": "object",
+            "xml": {
+              "name": "file"
+            },
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "invoice": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "no": {
+              "type": "integer"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "invoiceDate": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              }
+            },
+            "dueDate": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "sharing": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

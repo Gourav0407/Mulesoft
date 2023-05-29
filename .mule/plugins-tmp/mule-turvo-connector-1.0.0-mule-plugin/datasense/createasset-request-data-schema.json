@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "equipment_type"
+      ],
+      "properties": {
+        "vin": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "asset_number": {
+          "type": "string"
+        },
+        "asset_type": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "state": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "equipment_type": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "account": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "availability_status": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "ownership": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "vehicle_info": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "make": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "model": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "size": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "class": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "color": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "weight": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "provider": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "deviceId": {
+                "type": "string"
+              },
+              "custom_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:excel="http://www.mulesoft.org/schema/mule/excel" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/excel http://www.mulesoft.org/schema/mule/excel/current/mule-excel.xsd">
+	<flow name="writeFlow" doc:id="016fc560-55ad-4fc4-98ee-c193ecc2f1b3" >
+		<http:listener doc:name="Listener" doc:id="183dfa1a-05f9-4616-9b25-caa1542c2d54" config-ref="HTTP_Listener_config" path="/write"/>
+		<ee:transform doc:name="Transform Message" doc:id="4cc8cbaf-9396-434f-b13e-59d65eeae563" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xlsx
+---
+{
+	Sheet1: [{
+		EmployeeId: payload.employeeId,
+		EmployeeName: payload.employeeName,
+		EmployeeContact: payload.contact,
+		EmployeeAddress: payload.address
+	}]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="5cdf74a1-c794-40f2-bef2-608fd42a9aad" message="#[payload]" />
+		<file:write doc:name="Write" doc:id="aa1266b8-69ce-4715-9d83-99001aaa35e3" path="C:\Users\G68\OneDrive - Capgemini\Desktop\EmployeeB.xlsx" mode="CREATE_NEW" />
+	</flow>
+</mule>

@@ -1,0 +1,2085 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "respMsg": {
+      "type": "string"
+    },
+    "respCode": {
+      "type": "integer"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "createdBy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "photo"
+          ]
+        },
+        "updatedBy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "photo"
+          ]
+        },
+        "origin": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "primary": {
+                      "type": "boolean"
+                    },
+                    "line1": {
+                      "type": "string"
+                    },
+                    "line2": {
+                      "type": "string"
+                    },
+                    "zip": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "state": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "gps": {
+                      "type": "object",
+                      "properties": {
+                        "coordinates": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "coordinates"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "primary",
+                    "line1",
+                    "line2",
+                    "zip",
+                    "id",
+                    "city",
+                    "state",
+                    "country",
+                    "gps"
+                  ]
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "gps": {
+                  "type": "object",
+                  "properties": {
+                    "coordinates": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "coordinates"
+                  ]
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "schedulingInfo": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "warehouse": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "warehouse"
+                  ]
+                }
+              },
+              "required": [
+                "address",
+                "id",
+                "name",
+                "timezone",
+                "gps",
+                "photo",
+                "schedulingInfo"
+              ]
+            },
+            "miles": {
+              "type": "integer"
+            },
+            "account": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "sharing": {
+                  "type": "object",
+                  "properties": {
+                    "isShareable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "isShareable"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type",
+                "photo",
+                "sharing"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "location",
+            "miles",
+            "account"
+          ]
+        },
+        "destination": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "primary": {
+                      "type": "boolean"
+                    },
+                    "line1": {
+                      "type": "string"
+                    },
+                    "line2": {
+                      "type": "string"
+                    },
+                    "zip": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "state": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "country": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "gps": {
+                      "type": "object",
+                      "properties": {
+                        "coordinates": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "coordinates"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "primary",
+                    "line1",
+                    "line2",
+                    "zip",
+                    "id",
+                    "city",
+                    "state",
+                    "country",
+                    "gps"
+                  ]
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "gps": {
+                  "type": "object",
+                  "properties": {
+                    "coordinates": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "coordinates"
+                  ]
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "schedulingInfo": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "warehouse": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "warehouse"
+                  ]
+                }
+              },
+              "required": [
+                "address",
+                "id",
+                "name",
+                "timezone",
+                "gps",
+                "photo",
+                "schedulingInfo"
+              ]
+            },
+            "miles": {
+              "type": "integer"
+            },
+            "account": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "sharing": {
+                  "type": "object",
+                  "properties": {
+                    "isShareable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "isShareable"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type",
+                "photo",
+                "sharing"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "location",
+            "miles",
+            "account"
+          ]
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "photo"
+              ]
+            },
+            "sharing": {
+              "type": "object",
+              "properties": {
+                "isShareable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "isShareable"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "type",
+            "photo",
+            "owner",
+            "sharing"
+          ]
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "phase": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "carrier": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            },
+            "sharing": {
+              "type": "object",
+              "properties": {
+                "isShareable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "isShareable"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "type",
+            "photo",
+            "sharing"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "tagId": {
+                  "type": "integer"
+                },
+                "tagName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tagId",
+                "tagName"
+              ]
+            }
+          ]
+        },
+        "tasks": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "task_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "task_id"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "task_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "task_id"
+              ]
+            }
+          ]
+        },
+        "shipments": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "custom_id": {
+                  "type": "string"
+                },
+                "link_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "custom_id",
+                "link_type"
+              ]
+            }
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "item": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "key"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "code"
+                      ]
+                    },
+                    "category": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    },
+                    "note": {
+                      "type": "string"
+                    },
+                    "customer": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "location": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "packages": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "length": {
+                              "type": "integer"
+                            },
+                            "height": {
+                              "type": "integer"
+                            },
+                            "width": {
+                              "type": "integer"
+                            },
+                            "qty": {
+                              "type": "integer"
+                            },
+                            "ti": {
+                              "type": "integer"
+                            },
+                            "high": {
+                              "type": "integer"
+                            },
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "currency": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "key"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "currency",
+                                "value"
+                              ]
+                            },
+                            "temperature": {
+                              "type": "object",
+                              "properties": {
+                                "max": {
+                                  "type": "integer"
+                                },
+                                "min": {
+                                  "type": "integer"
+                                },
+                                "unit": {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "key"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "max",
+                                "min",
+                                "unit"
+                              ]
+                            },
+                            "units": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "key"
+                              ]
+                            },
+                            "weights": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "type": "integer"
+                                    },
+                                    "type": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "key": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "value",
+                                        "key"
+                                      ]
+                                    },
+                                    "unit": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string"
+                                        },
+                                        "key": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "value",
+                                        "key"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "value",
+                                    "type",
+                                    "unit"
+                                  ]
+                                }
+                              ]
+                            },
+                            "is_base_unit": {
+                              "type": "boolean"
+                            },
+                            "max_stack_count": {
+                              "type": "integer"
+                            },
+                            "is_stackable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "length",
+                            "height",
+                            "width",
+                            "qty",
+                            "ti",
+                            "high",
+                            "value",
+                            "temperature",
+                            "units",
+                            "weights",
+                            "is_base_unit",
+                            "max_stack_count",
+                            "is_stackable"
+                          ]
+                        }
+                      ]
+                    },
+                    "item_id": {
+                      "type": "string"
+                    },
+                    "catch_weight_type": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    },
+                    "external_ids": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id_value": {
+                              "type": "string"
+                            },
+                            "id_type": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "value",
+                                "key"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id_value",
+                            "id_type"
+                          ]
+                        }
+                      ]
+                    },
+                    "shelf_life": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "key"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "type"
+                      ]
+                    },
+                    "special_conditions": {
+                      "type": "object",
+                      "properties": {
+                        "is_hazmat": {
+                          "type": "boolean"
+                        },
+                        "is_odor_sensitive": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "is_hazmat",
+                        "is_odor_sensitive"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description",
+                    "status",
+                    "category",
+                    "note",
+                    "customer",
+                    "location",
+                    "packages",
+                    "item_id",
+                    "catch_weight_type",
+                    "external_ids",
+                    "shelf_life",
+                    "special_conditions"
+                  ]
+                },
+                "quantity": {
+                  "type": "object",
+                  "properties": {
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "unit": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "quantity",
+                    "unit"
+                  ]
+                },
+                "inventory": {
+                  "type": "object",
+                  "properties": {
+                    "inventory_id": {
+                      "type": "string"
+                    },
+                    "custom_id": {
+                      "type": "string"
+                    },
+                    "lot_number": {
+                      "type": "string"
+                    },
+                    "is_depleted": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "inventory_id",
+                    "custom_id",
+                    "lot_number",
+                    "is_depleted"
+                  ]
+                },
+                "category": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "dimensions": {
+                  "type": "object",
+                  "properties": {
+                    "length": {
+                      "type": "integer"
+                    },
+                    "width": {
+                      "type": "integer"
+                    },
+                    "height": {
+                      "type": "integer"
+                    },
+                    "units": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "length",
+                    "width",
+                    "height",
+                    "units"
+                  ]
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "stackable": {
+                      "type": "boolean"
+                    },
+                    "perishable": {
+                      "type": "boolean"
+                    },
+                    "is_hazmat": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "stackable",
+                    "perishable",
+                    "is_hazmat"
+                  ]
+                },
+                "ref": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "item",
+                "quantity",
+                "inventory",
+                "category",
+                "name",
+                "dimensions",
+                "attributes",
+                "ref",
+                "notes"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "type": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            },
+            "bill_to": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type",
+                "photo"
+              ]
+            },
+            "line_items": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    },
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "qty": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "integer"
+                    },
+                    "billable": {
+                      "type": "boolean"
+                    },
+                    "notes": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "amount",
+                    "qty",
+                    "price",
+                    "billable",
+                    "notes"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "amount",
+            "notes",
+            "type",
+            "bill_to",
+            "line_items"
+          ]
+        },
+        "equipment": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "equipment_type": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                },
+                "equipment_size": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "equipment_type",
+                "equipment_size"
+              ]
+            }
+          ]
+        },
+        "flex_attributes": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "scope": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "shareable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "scope",
+                    "type",
+                    "shareable"
+                  ]
+                },
+                "value": {
+                  "type": "boolean"
+                },
+                "account": {
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "active",
+                    "deleted",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "active",
+                "deleted",
+                "id",
+                "field",
+                "value",
+                "account"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "field": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "scope": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "shareable": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "key",
+                    "name",
+                    "scope",
+                    "type",
+                    "shareable"
+                  ]
+                },
+                "value": {
+                  "type": "string"
+                },
+                "account": {
+                  "type": "object",
+                  "properties": {
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "active",
+                    "deleted",
+                    "name"
+                  ]
+                }
+              },
+              "required": [
+                "active",
+                "deleted",
+                "id",
+                "field",
+                "value",
+                "account"
+              ]
+            }
+          ]
+        },
+        "contacts": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "contactId": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "phones": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "number": {
+                              "type": "string"
+                            },
+                            "extension": {
+                              "type": "string"
+                            },
+                            "primary": {
+                              "type": "boolean"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "number",
+                            "extension",
+                            "primary",
+                            "source"
+                          ]
+                        }
+                      ]
+                    },
+                    "emails": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "primary": {
+                              "type": "boolean"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "email",
+                            "primary",
+                            "source"
+                          ]
+                        }
+                      ]
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "key"
+                          ]
+                        }
+                      ]
+                    },
+                    "role": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "key"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "contactId",
+                    "title",
+                    "name",
+                    "photo",
+                    "email",
+                    "phones",
+                    "emails",
+                    "roles",
+                    "role"
+                  ]
+                },
+                "role": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "contact",
+                "role"
+              ]
+            }
+          ]
+        },
+        "user_groups": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "defaultGroup": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "active",
+                "deleted",
+                "id",
+                "name",
+                "defaultGroup",
+                "description"
+              ]
+            }
+          ]
+        },
+        "groups": {
+          "type": "array",
+          "items": [
+            {
+              "type": "integer"
+            }
+          ]
+        },
+        "date": {
+          "type": "string"
+        },
+        "lastUpdatedOn": {
+          "type": "string"
+        },
+        "tenant_id": {
+          "type": "integer"
+        },
+        "custom_id": {
+          "type": "string"
+        },
+        "order_id": {
+          "type": "string"
+        },
+        "order_type": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "start_date": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "flex": {
+              "type": "integer"
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "hasTime": {
+              "type": "boolean"
+            },
+            "userDate": {
+              "type": "string"
+            },
+            "schedulingType": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            }
+          },
+          "required": [
+            "date",
+            "flex",
+            "timezone",
+            "hasTime",
+            "userDate",
+            "schedulingType"
+          ]
+        },
+        "end_date": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "flex": {
+              "type": "integer"
+            },
+            "timezone": {
+              "type": "string"
+            },
+            "hasTime": {
+              "type": "boolean"
+            },
+            "userDate": {
+              "type": "string"
+            },
+            "schedulingType": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            }
+          },
+          "required": [
+            "date",
+            "flex",
+            "timezone",
+            "hasTime",
+            "userDate",
+            "schedulingType"
+          ]
+        },
+        "start_date_type": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "end_date_type": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "key"
+          ]
+        },
+        "connect_integrations": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "account": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "type",
+                    "photo"
+                  ]
+                },
+                "is_enabled": {
+                  "type": "boolean"
+                },
+                "last_processed": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "account",
+                "is_enabled",
+                "last_processed",
+                "type"
+              ]
+            }
+          ]
+        },
+        "shipment_count": {
+          "type": "integer"
+        },
+        "line_item_number_counter": {
+          "type": "integer"
+        },
+        "external_ids": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "account": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "type",
+                    "photo"
+                  ]
+                },
+                "id_value": {
+                  "type": "string"
+                },
+                "id_type": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "account",
+                "id_value",
+                "id_type"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "account": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "type",
+                    "photo"
+                  ]
+                },
+                "id_value": {
+                  "type": "string"
+                },
+                "id_type": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "account",
+                "id_value",
+                "id_type"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "active",
+        "deleted",
+        "createdBy",
+        "updatedBy",
+        "origin",
+        "destination",
+        "customer",
+        "status",
+        "phase",
+        "carrier",
+        "tags",
+        "tasks",
+        "shipments",
+        "items",
+        "costs",
+        "equipment",
+        "flex_attributes",
+        "contacts",
+        "user_groups",
+        "groups",
+        "date",
+        "lastUpdatedOn",
+        "tenant_id",
+        "custom_id",
+        "order_id",
+        "order_type",
+        "start_date",
+        "end_date",
+        "start_date_type",
+        "end_date_type",
+        "connect_integrations",
+        "shipment_count",
+        "line_item_number_counter",
+        "external_ids"
+      ]
+    },
+    "_rb": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "responseCode": {
+                  "type": "string"
+                },
+                "userMessage": {
+                  "type": "string"
+                },
+                "systemMessage": {
+                  "type": "string"
+                },
+                "closeAfter": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "responseCode",
+                "userMessage",
+                "systemMessage",
+                "closeAfter"
+              ]
+            }
+          ]
+        },
+        "failedRules": {
+          "type": "null"
+        },
+        "error": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "messages",
+        "failedRules",
+        "error"
+      ]
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "respMsg",
+    "respCode",
+    "details",
+    "_rb",
+    "id"
+  ]
+}

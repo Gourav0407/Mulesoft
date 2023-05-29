@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "code"
+          ],
+          "properties": {
+            "code": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "key",
+                "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "notes": {
+              "type": "string"
+            },
+            "statusDate": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "date"
+              ],
+              "properties": {
+                "date": {
+                  "type": "string"
+                }
+              }
+            },
+            "location": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "city": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "lon": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "string"
+                },
+                "globalShipLocationId": {
+                  "type": "integer"
+                }
+              }
+            },
+            "postType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

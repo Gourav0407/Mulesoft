@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "origin": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      "required": [
+        "location"
+      ]
+    },
+    "destination": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      "required": [
+        "location"
+      ]
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "item": {
+              "type": "object",
+              "properties": {
+                "item_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "item_id"
+              ]
+            },
+            "quantity": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "quantity",
+                "unit"
+              ]
+            },
+            "inventory": {
+              "type": "object",
+              "properties": {
+                "inventory_id": {
+                  "type": "string"
+                },
+                "custom_id": {
+                  "type": "string"
+                },
+                "lot_number": {
+                  "type": "string"
+                },
+                "is_depleted": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "inventory_id",
+                "custom_id",
+                "lot_number",
+                "is_depleted"
+              ]
+            },
+            "category": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "dimensions": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "type": "integer"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "units": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "key"
+                  ]
+                }
+              },
+              "required": [
+                "length",
+                "width",
+                "height",
+                "units"
+              ]
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "stackable": {
+                  "type": "boolean"
+                },
+                "perishable": {
+                  "type": "null"
+                },
+                "is_hazmat": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "stackable",
+                "perishable",
+                "is_hazmat"
+              ]
+            },
+            "ref": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "item",
+            "quantity",
+            "inventory",
+            "category",
+            "name",
+            "dimensions",
+            "attributes",
+            "ref",
+            "notes"
+          ]
+        }
+      ]
+    },
+    "start_date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "end_date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "hasTime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "timezone",
+        "hasTime"
+      ]
+    },
+    "external_ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "account": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "id_value": {
+              "type": "string"
+            },
+            "id_type": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            }
+          },
+          "required": [
+            "account",
+            "id_value",
+            "id_type"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "account": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "id_value": {
+              "type": "string"
+            },
+            "id_type": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "key"
+              ]
+            }
+          },
+          "required": [
+            "account",
+            "id_value",
+            "id_type"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "customer",
+    "start_date",
+    "end_date"
+  ]
+}

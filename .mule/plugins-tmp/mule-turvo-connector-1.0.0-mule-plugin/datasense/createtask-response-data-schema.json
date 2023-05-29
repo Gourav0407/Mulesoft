@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object",
+          "xml": {
+            "name": "taskEntity"
+          },
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "completed": {
+              "type": "boolean"
+            },
+            "overdue": {
+              "type": "boolean"
+            },
+            "deleted": {
+              "type": "boolean"
+            },
+            "dueDate": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "hasTime": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "follower": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "follower"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "link": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "link"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "entityId": {
+                    "type": "integer"
+                  },
+                  "entityType": {
+                    "type": "string"
+                  },
+                  "shipmentId/accountId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "reminder": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "xml": {
+                  "name": "reminder"
+                },
+                "additionalProperties": true,
+                "properties": {
+                  "hasTime": {
+                    "type": "boolean"
+                  },
+                  "flex": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "assignee": {
+              "type": "object",
+              "xml": {
+                "name": "assignee"
+              },
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              }
+            },
+            "createdBy": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

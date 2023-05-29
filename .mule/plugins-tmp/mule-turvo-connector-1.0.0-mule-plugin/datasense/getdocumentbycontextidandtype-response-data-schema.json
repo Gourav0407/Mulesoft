@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/schema",
+  "definitions": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "documents": {
+              "type": "array",
+              "xml": {
+                "name": "documents",
+                "wrapped": true
+              },
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  },
+                  "contextId": {
+                    "type": "integer"
+                  },
+                  "contextType": {
+                    "type": "string"
+                  },
+                  "documentType": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "key": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "documentName": {
+                    "type": "string"
+                  },
+                  "documentDescription": {
+                    "type": "string"
+                  },
+                  "documentStatus": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "sharing": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "entities": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": true,
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "string"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "file": {
+                    "type": "array",
+                    "xml": {
+                      "name": "file",
+                      "wrapped": true
+                    },
+                    "items": {
+                      "type": "object",
+                      "xml": {
+                        "name": "file"
+                      },
+                      "additionalProperties": true,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

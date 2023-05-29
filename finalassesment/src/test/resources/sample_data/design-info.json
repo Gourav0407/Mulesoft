@@ -1,0 +1,10 @@
+{
+  "sampleData": {
+    "7835233b-c206-48ad-8817-81c09ca0f624": {
+      "payload": "sample_data/list_java.dwl"
+    },
+    "cedd4fc0-665e-4b08-bcba-0077e935275f": {
+      "vars-Employee": "sample_data/json.json"
+    }
+  }
+}

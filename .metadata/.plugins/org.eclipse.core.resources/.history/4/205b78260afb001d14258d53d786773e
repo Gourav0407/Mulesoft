@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="PostPersonEmployee" doc:id="a15d44f1-141d-47fd-8fc1-f7564538a6bb" >
+		<http:listener doc:name="Listener" doc:id="d0f2ad9f-e04a-4876-ad1d-d732abf1b463" config-ref="HTTP_Listener_config" path="/create-employee"/>
+		<flow-ref doc:name="Flow Reference" doc:id="8f31482c-9989-497f-9cf4-70af8fc03afa" name="PostEmployees"/>
+	</flow>
+	<flow name="PersonDataMainFlowFlow" doc:id="dbd50c1a-1262-46b3-865d-d6db3bdb57e8" >
+		<http:listener doc:name="Listener" doc:id="f696bc4d-5619-4ee2-9372-e6a8f34af037" config-ref="HTTP_Listener_config" path="/read-all/{name}"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="f044b76a-14b3-40a7-a47e-1da6c2258ed4" >
+			<route >
+				<flow-ref doc:name="Flow Reference" doc:id="8293dc3a-ac9d-447a-8451-38bd62887765" name="GetEmployees"/>
+			</route>
+			<route >
+				<flow-ref doc:name="Flow Reference" doc:id="811264e4-c066-4012-8db9-59ccd0d3a1bd" name="GetPerson"/>
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="cedd4fc0-665e-4b08-bcba-0077e935275f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload..]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

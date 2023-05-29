@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Status": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer"
+            },
+            "pageSize": {
+              "type": "integer"
+            },
+            "totalRecordsInPage": {
+              "type": "integer"
+            },
+            "moreAvailable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "start",
+            "pageSize",
+            "totalRecordsInPage",
+            "moreAvailable"
+          ]
+        },
+        "shipments": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "customId": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "integer"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "customerOrder": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "customer": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "customer"
+                      ]
+                    }
+                  ]
+                },
+                "carrierOrder": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "carrier": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "carrier"
+                      ]
+                    }
+                  ]
+                },
+                "created": {
+                  "type": "string"
+                },
+                "updated": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "customId",
+                "status",
+                "customerOrder",
+                "carrierOrder",
+                "created",
+                "updated"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "pagination",
+        "shipments"
+      ]
+    }
+  },
+  "required": [
+    "Status",
+    "details"
+  ]
+}
